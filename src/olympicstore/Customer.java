@@ -35,7 +35,7 @@ public class Customer {
 		CustID = CustIDCounter;
 		CustIDCounter++;
 		FName = LName = CCExp = CCName = CCNum = "";
-		custOrders = new ArrayList();
+		CustOrders = new ArrayList();
 	} // end constructor
 	
 	//gets and sets

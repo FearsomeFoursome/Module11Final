@@ -1,12 +1,30 @@
-
+/* 
+ * Fearsome Foursome
+ * Object Oriented Programming
+ * Final Project
+ * 
+ * This project is a prototype for a customer information system.
+ * It allows a customer to create a login, log in, reset their password,
+ * and modify their account information.
+ * A tab of test buttons is provided because this is a prototype; data is
+ * not persistent.
+ * 
+ */
 package olympicstore;
 
+import static java.awt.image.ImageObserver.WIDTH;
+import java.util.TreeMap;
+import javax.swing.JOptionPane;
 
 public class LoginScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginScreen
-     */
+	// non-generated variables
+	// treemap for customer storage; currentcust to make object handling easier, and
+	// errortext for input error handling
+	 TreeMap custmap = new TreeMap();
+	 private Customer currentcust;
+	 private String errortext;
+	 
     public LoginScreen() {
         initComponents();
     }
@@ -25,90 +43,90 @@ public class LoginScreen extends javax.swing.JFrame {
       CustomerLogin = new javax.swing.JPanel();
       CstEMailAddressLabel = new javax.swing.JLabel();
       CstPasswordLabel = new javax.swing.JLabel();
-      CstEMailAddress = new javax.swing.JTextField();
-      btnCstOK = new javax.swing.JButton();
-      btnCstCancel = new javax.swing.JButton();
-      CstPassword = new javax.swing.JPasswordField();
+      LoginTabEmailField = new javax.swing.JTextField();
+      LoginTabOKButton = new javax.swing.JButton();
+      LoginTabCancelButton = new javax.swing.JButton();
+      LoginTabPasswordField = new javax.swing.JPasswordField();
       OlympicPride = new javax.swing.JLabel();
       jLabel2 = new javax.swing.JLabel();
       NewCustomer = new javax.swing.JPanel();
       ReqFieldInstruct = new javax.swing.JLabel();
       EmailAddress = new javax.swing.JLabel();
-      EmailAddressField = new javax.swing.JTextField();
+      NewTabEmailField = new javax.swing.JTextField();
       OlympicPride1 = new javax.swing.JLabel();
       NewPasswordLabel = new javax.swing.JLabel();
       ConfirmNewPasswordLabel = new javax.swing.JLabel();
-      CreateNewCustomerPassword = new javax.swing.JPasswordField();
-      ConfirmNewCustomerPassword = new javax.swing.JPasswordField();
+      NewTabCreatePasswordField = new javax.swing.JPasswordField();
+      NewTabConfirmPasswordField = new javax.swing.JPasswordField();
       jLabel1 = new javax.swing.JLabel();
       jLabel3 = new javax.swing.JLabel();
-      NewCustomerSecurityQuestion = new javax.swing.JComboBox();
-      NewCustomerSecurityAnswer = new javax.swing.JTextField();
-      btnNewCustomerSave = new javax.swing.JButton();
-      btnNewCustomerCancel = new javax.swing.JButton();
+      NewTabQuestionDropdown = new javax.swing.JComboBox();
+      NewTabAnswerField = new javax.swing.JTextField();
+      NewTabSaveButton = new javax.swing.JButton();
+      NewTabCancelButton = new javax.swing.JButton();
       jLabel4 = new javax.swing.JLabel();
       ForgotPassword = new javax.swing.JPanel();
       ResetEMailAddressLabel = new javax.swing.JLabel();
       ResetSecurityQuestionLabel = new javax.swing.JLabel();
-      ResetComboSecurityQuestion = new javax.swing.JComboBox();
-      ResetAnswSecurityQuestion = new javax.swing.JTextField();
-      ResetEMailAddress = new javax.swing.JTextField();
-      btnResetOK = new javax.swing.JButton();
-      btnResetCancel = new javax.swing.JButton();
+      ForgotTabDropdown = new javax.swing.JComboBox();
+      ForgotTabAnswerField = new javax.swing.JTextField();
+      ForgotTabEmailField = new javax.swing.JTextField();
+      ForgotTabOKButton = new javax.swing.JButton();
+      ForgotTabCancelButton = new javax.swing.JButton();
       OlympicPride2 = new javax.swing.JLabel();
       ResetAnswer = new javax.swing.JLabel();
       ReqFieldInstruct1 = new javax.swing.JLabel();
       jLabel5 = new javax.swing.JLabel();
       ModifyCustomerInfo = new javax.swing.JPanel();
-      btnUpdLoad = new javax.swing.JButton();
+      ModifyTabLoadButton = new javax.swing.JButton();
       jLabel9 = new javax.swing.JLabel();
       OlympicPride5 = new javax.swing.JLabel();
       EmailAddress1 = new javax.swing.JLabel();
-      UpdEmailAddressField = new javax.swing.JTextField();
+      ModifyTabEmailField = new javax.swing.JTextField();
       ModBillCardNumberLabel = new javax.swing.JLabel();
       ModBillCardExpDateLabel = new javax.swing.JLabel();
       ModBillCardHolderNameLabel = new javax.swing.JLabel();
-      ModBillCCNbrField = new javax.swing.JTextField();
-      ModBillAcctCardExpDate = new javax.swing.JFormattedTextField();
-      ModBillCCHolderField = new javax.swing.JTextField();
+      ModifyTabCardExpField = new javax.swing.JFormattedTextField();
+      ModifyTabCardNameField = new javax.swing.JTextField();
       ModShipFirstNameLabel = new javax.swing.JLabel();
       ModShipLastNameLabel = new javax.swing.JLabel();
       ModShipAddress1Label = new javax.swing.JLabel();
       ModShipAddress2Label = new javax.swing.JLabel();
       ModShipCityLabel = new javax.swing.JLabel();
       ModShipStateLabel = new javax.swing.JLabel();
-      ModShpFirstNameField = new javax.swing.JTextField();
-      ModShipLastNameField = new javax.swing.JTextField();
-      ModShipAddress1Field = new javax.swing.JTextField();
-      ModShipAddress2Field = new javax.swing.JTextField();
-      ModShipCityField = new javax.swing.JTextField();
-      ModShipStateDropDown = new javax.swing.JComboBox();
+      ModifyTabShipFNameField = new javax.swing.JTextField();
+      ModifyTabShipLNameField = new javax.swing.JTextField();
+      ModifyTabShipAddress1Field = new javax.swing.JTextField();
+      ModifyTabShipAddress2Field = new javax.swing.JTextField();
+      ModifyTabShipCityField = new javax.swing.JTextField();
+      ModifyTabShipStateDropdown = new javax.swing.JComboBox();
       ModShipZipCode = new javax.swing.JLabel();
-      ModShipZipCodeField = new javax.swing.JFormattedTextField();
+      ModifyTabShipZIPField = new javax.swing.JFormattedTextField();
       ModShipPhoneNumberLabel = new javax.swing.JLabel();
-      ModShipPhoneNumberField = new javax.swing.JFormattedTextField();
+      ModifyTabShipPhoneField = new javax.swing.JFormattedTextField();
       ModBillFirstNameLabel = new javax.swing.JLabel();
       ModBillLastNameLabel = new javax.swing.JLabel();
       ModBillAddress1LineLabel = new javax.swing.JLabel();
       ModBillAddress2LineLabel = new javax.swing.JLabel();
       ModBillCityLabel = new javax.swing.JLabel();
       ModBillStateLabel = new javax.swing.JLabel();
-      ModBillStateDropDown = new javax.swing.JComboBox();
+      ModifyTabBillStateDropdown = new javax.swing.JComboBox();
       ModBillZipCodeLabel = new javax.swing.JLabel();
-      ModBillZipCodeField = new javax.swing.JFormattedTextField();
-      ModBillFirstNameField = new javax.swing.JTextField();
-      ModBillLastNameField = new javax.swing.JTextField();
-      ModBillAddress1Field = new javax.swing.JTextField();
-      ModBillAddress2Field = new javax.swing.JTextField();
-      ModBillCityField = new javax.swing.JTextField();
+      ModifyTabBillZIPField = new javax.swing.JFormattedTextField();
+      ModifyTabBillFNameField = new javax.swing.JTextField();
+      ModifyTabBillLNameField = new javax.swing.JTextField();
+      ModifyTabBillAddress1Field = new javax.swing.JTextField();
+      ModifyTabBillAddress2Field = new javax.swing.JTextField();
+      ModifyTabBillCityField = new javax.swing.JTextField();
       ModBillPhoneNumberLabel = new javax.swing.JLabel();
-      ModBillPhoneNumberField = new javax.swing.JFormattedTextField();
+      ModifyTabBillPhoneField = new javax.swing.JFormattedTextField();
       ShippingInfoLabel = new javax.swing.JLabel();
       BillingInfoLabel = new javax.swing.JLabel();
-      btnModSave = new javax.swing.JButton();
-      btnModCancel = new javax.swing.JButton();
+      ModifyTabSaveButton = new javax.swing.JButton();
+      ModifyTabCancelButton = new javax.swing.JButton();
+      ModifyTabCardNumField = new javax.swing.JFormattedTextField();
       Test = new javax.swing.JPanel();
-      jButton1 = new javax.swing.JButton();
+      TestTabLoadCustomersButton = new javax.swing.JButton();
       jButton2 = new javax.swing.JButton();
       jButton3 = new javax.swing.JButton();
       jButton4 = new javax.swing.JButton();
@@ -131,11 +149,19 @@ public class LoginScreen extends javax.swing.JFrame {
 
       CstPasswordLabel.setText("Password");
 
-      btnCstOK.setText("OK");
+      LoginTabOKButton.setText("OK");
+      LoginTabOKButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            LoginTabOKButtonActionPerformed(evt);
+         }
+      });
 
-      btnCstCancel.setText("Cancel");
-
-      CstPassword.setText("jPasswordField1");
+      LoginTabCancelButton.setText("Cancel");
+      LoginTabCancelButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            LoginTabCancelButtonActionPerformed(evt);
+         }
+      });
 
       OlympicPride.setFont(new java.awt.Font("Gill Sans", 1, 48)); // NOI18N
       OlympicPride.setText("Olympic Pride");
@@ -160,12 +186,12 @@ public class LoginScreen extends javax.swing.JFrame {
                            .addComponent(CstPasswordLabel))
                         .addGap(26, 26, 26)
                         .addGroup(CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                           .addComponent(CstEMailAddress)
-                           .addComponent(CstPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                           .addComponent(LoginTabEmailField)
+                           .addComponent(LoginTabPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
                         .addGap(43, 43, 43)
                         .addGroup(CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                           .addComponent(btnCstOK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                           .addComponent(btnCstCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                           .addComponent(LoginTabOKButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                           .addComponent(LoginTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                      .addComponent(OlympicPride, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE))
                   .addGap(0, 472, Short.MAX_VALUE))))
       );
@@ -180,13 +206,13 @@ public class LoginScreen extends javax.swing.JFrame {
             .addGroup(CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                .addGroup(CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                   .addComponent(CstEMailAddressLabel)
-                  .addComponent(CstEMailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-               .addComponent(btnCstOK, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                  .addComponent(LoginTabEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(LoginTabOKButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(18, 18, 18)
             .addGroup(CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                .addComponent(CstPasswordLabel)
-               .addComponent(CstPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(btnCstCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(LoginTabPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(LoginTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addContainerGap(308, Short.MAX_VALUE))
       );
 
@@ -200,9 +226,9 @@ public class LoginScreen extends javax.swing.JFrame {
 
       EmailAddress.setText("Email Address *");
 
-      EmailAddressField.addFocusListener(new java.awt.event.FocusAdapter() {
+      NewTabEmailField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            EmailAddressFieldFocusGained(evt);
+            NewTabEmailFieldFocusGained(evt);
          }
       });
 
@@ -213,19 +239,31 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ConfirmNewPasswordLabel.setText("Confirm New Password *");
 
-      CreateNewCustomerPassword.setText("jPasswordField2");
-
-      ConfirmNewCustomerPassword.setText("jPasswordField2");
+      NewTabCreatePasswordField.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            NewTabCreatePasswordFieldActionPerformed(evt);
+         }
+      });
 
       jLabel1.setText("Security Question *");
 
       jLabel3.setText("Security Answer *");
 
-      NewCustomerSecurityQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select One:", "What is your mother maiden name", "What is your dog name", "What was your school name" }));
+      NewTabQuestionDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select One:", "1. What is your mother's maiden name?", "2. What is your favorite pet's name?", "3. What was the name of your elementary school?" }));
 
-      btnNewCustomerSave.setText("Save");
+      NewTabSaveButton.setText("Save");
+      NewTabSaveButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            NewTabSaveButtonActionPerformed(evt);
+         }
+      });
 
-      btnNewCustomerCancel.setText("Cancel");
+      NewTabCancelButton.setText("Cancel");
+      NewTabCancelButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            NewTabCancelButtonActionPerformed(evt);
+         }
+      });
 
       jLabel4.setText("Color Label");
 
@@ -255,15 +293,15 @@ public class LoginScreen extends javax.swing.JFrame {
                            .addComponent(EmailAddress))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                           .addComponent(EmailAddressField)
-                           .addComponent(CreateNewCustomerPassword)
-                           .addComponent(NewCustomerSecurityQuestion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                           .addComponent(NewCustomerSecurityAnswer)
-                           .addComponent(ConfirmNewCustomerPassword))))
+                           .addComponent(NewTabEmailField)
+                           .addComponent(NewTabCreatePasswordField)
+                           .addComponent(NewTabQuestionDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                           .addComponent(NewTabAnswerField)
+                           .addComponent(NewTabConfirmPasswordField))))
                   .addGap(161, 161, 161)
                   .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(btnNewCustomerSave, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(btnNewCustomerCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                     .addComponent(NewTabSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(NewTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                   .addContainerGap(68, Short.MAX_VALUE))))
       );
       NewCustomerLayout.setVerticalGroup(
@@ -278,28 +316,28 @@ public class LoginScreen extends javax.swing.JFrame {
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                .addComponent(EmailAddress)
-               .addComponent(EmailAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(btnNewCustomerSave, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(NewTabEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(NewTabSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(NewCustomerLayout.createSequentialGroup()
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                      .addComponent(NewPasswordLabel)
-                     .addComponent(CreateNewCustomerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                     .addComponent(NewTabCreatePasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                     .addComponent(ConfirmNewCustomerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(NewTabConfirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ConfirmNewPasswordLabel)))
                .addGroup(NewCustomerLayout.createSequentialGroup()
                   .addGap(23, 23, 23)
-                  .addComponent(btnNewCustomerCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                  .addComponent(NewTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(NewCustomerSecurityQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(NewTabQuestionDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                .addComponent(jLabel1))
             .addGap(6, 6, 6)
             .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(NewCustomerSecurityAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(NewTabAnswerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                .addComponent(jLabel3))
             .addContainerGap(280, Short.MAX_VALUE))
       );
@@ -310,12 +348,27 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ResetSecurityQuestionLabel.setText("Security Question *");
 
-      ResetComboSecurityQuestion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select One:", "What is your mother maiden name", "What is your dog name", "What was your school name" }));
-      ResetComboSecurityQuestion.setToolTipText("");
+      ForgotTabDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select One:", "1. What is your mother's maiden name?", "2. What is your favorite pet's name?", "3. What was the name of your elementary school?" }));
+      ForgotTabDropdown.setToolTipText("");
+      ForgotTabDropdown.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ForgotTabDropdownActionPerformed(evt);
+         }
+      });
 
-      btnResetOK.setText("OK");
+      ForgotTabOKButton.setText("OK");
+      ForgotTabOKButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ForgotTabOKButtonActionPerformed(evt);
+         }
+      });
 
-      btnResetCancel.setText("Cancel");
+      ForgotTabCancelButton.setText("Cancel");
+      ForgotTabCancelButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ForgotTabCancelButtonActionPerformed(evt);
+         }
+      });
 
       OlympicPride2.setFont(new java.awt.Font("Gill Sans", 1, 48)); // NOI18N
       OlympicPride2.setText("Olympic Pride");
@@ -347,14 +400,14 @@ public class LoginScreen extends javax.swing.JFrame {
                               .addComponent(ResetAnswer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                            .addGap(18, 18, 18)
                            .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                              .addComponent(ResetAnswSecurityQuestion)
-                              .addComponent(ResetComboSecurityQuestion, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                              .addComponent(ResetEMailAddress))
+                              .addComponent(ForgotTabAnswerField)
+                              .addComponent(ForgotTabDropdown, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                              .addComponent(ForgotTabEmailField))
                            .addGap(18, 18, 18)
                            .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                              .addComponent(btnResetOK, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                              .addComponent(btnResetCancel, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)))))
-                  .addGap(0, 479, Short.MAX_VALUE))
+                              .addComponent(ForgotTabOKButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                              .addComponent(ForgotTabCancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)))))
+                  .addGap(0, 414, Short.MAX_VALUE))
                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
       );
@@ -371,27 +424,32 @@ public class LoginScreen extends javax.swing.JFrame {
             .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(ForgotPasswordLayout.createSequentialGroup()
                   .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                     .addComponent(ResetEMailAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ForgotTabEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ResetEMailAddressLabel))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(ResetComboSecurityQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ForgotTabDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ResetSecurityQuestionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                     .addComponent(ResetAnswSecurityQuestion, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                     .addComponent(ForgotTabAnswerField, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                      .addComponent(ResetAnswer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                .addGroup(ForgotPasswordLayout.createSequentialGroup()
                   .addGap(15, 15, 15)
-                  .addComponent(btnResetOK, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(ForgotTabOKButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                   .addGap(26, 26, 26)
-                  .addComponent(btnResetCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                  .addComponent(ForgotTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(230, 230, 230))
       );
 
       tabCstLogin.addTab("Forgot Password", ForgotPassword);
 
-      btnUpdLoad.setText("Load");
+      ModifyTabLoadButton.setText("Load");
+      ModifyTabLoadButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ModifyTabLoadButtonActionPerformed(evt);
+         }
+      });
 
       jLabel9.setText("Color label");
 
@@ -400,9 +458,9 @@ public class LoginScreen extends javax.swing.JFrame {
 
       EmailAddress1.setText("Email Address *");
 
-      UpdEmailAddressField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabEmailField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            UpdEmailAddressFieldFocusGained(evt);
+            ModifyTabEmailFieldFocusGained(evt);
          }
       });
 
@@ -412,22 +470,16 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ModBillCardHolderNameLabel.setText("Card Holder Name");
 
-      ModBillCCNbrField.addFocusListener(new java.awt.event.FocusAdapter() {
-         public void focusGained(java.awt.event.FocusEvent evt) {
-            ModBillCCNbrFieldFocusGained(evt);
-         }
-      });
+      ModifyTabCardExpField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("mm/dd/yyyy"))));
 
-      ModBillAcctCardExpDate.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("mm/dd/yyyy"))));
-
-      ModBillCCHolderField.addActionListener(new java.awt.event.ActionListener() {
+      ModifyTabCardNameField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ModBillCCHolderFieldActionPerformed(evt);
+            ModifyTabCardNameFieldActionPerformed(evt);
          }
       });
-      ModBillCCHolderField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabCardNameField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModBillCCHolderFieldFocusGained(evt);
+            ModifyTabCardNameFieldFocusGained(evt);
          }
       });
 
@@ -444,63 +496,63 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ModShipStateLabel.setText("State *");
 
-      ModShpFirstNameField.addActionListener(new java.awt.event.ActionListener() {
+      ModifyTabShipFNameField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ModShpFirstNameFieldActionPerformed(evt);
+            ModifyTabShipFNameFieldActionPerformed(evt);
          }
       });
-      ModShpFirstNameField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabShipFNameField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModShpFirstNameFieldFocusGained(evt);
+            ModifyTabShipFNameFieldFocusGained(evt);
          }
       });
 
-      ModShipLastNameField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabShipLNameField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModShipLastNameFieldFocusGained(evt);
+            ModifyTabShipLNameFieldFocusGained(evt);
          }
       });
 
-      ModShipAddress1Field.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabShipAddress1Field.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModShipAddress1FieldFocusGained(evt);
+            ModifyTabShipAddress1FieldFocusGained(evt);
          }
       });
 
-      ModShipAddress2Field.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabShipAddress2Field.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModShipAddress2FieldFocusGained(evt);
+            ModifyTabShipAddress2FieldFocusGained(evt);
          }
       });
 
-      ModShipCityField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabShipCityField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModShipCityFieldFocusGained(evt);
+            ModifyTabShipCityFieldFocusGained(evt);
          }
       });
 
-      ModShipStateDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "Washington D.C.", "West Virginia", "Wisconsin", "Wyoming" }));
-      ModShipStateDropDown.addActionListener(new java.awt.event.ActionListener() {
+      ModifyTabShipStateDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "Washington D.C.", "West Virginia", "Wisconsin", "Wyoming" }));
+      ModifyTabShipStateDropdown.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ModShipStateDropDownActionPerformed(evt);
+            ModifyTabShipStateDropdownActionPerformed(evt);
          }
       });
 
       ModShipZipCode.setText("Zip Code *");
 
       try {
-         ModShipZipCodeField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+         ModifyTabShipZIPField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
       } catch (java.text.ParseException ex) {
          ex.printStackTrace();
       }
-      ModShipZipCodeField.addActionListener(new java.awt.event.ActionListener() {
+      ModifyTabShipZIPField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ModShipZipCodeFieldActionPerformed(evt);
+            ModifyTabShipZIPFieldActionPerformed(evt);
          }
       });
-      ModShipZipCodeField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabShipZIPField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModShipZipCodeFieldFocusGained(evt);
+            ModifyTabShipZIPFieldFocusGained(evt);
          }
       });
 
@@ -508,13 +560,13 @@ public class LoginScreen extends javax.swing.JFrame {
       ModShipPhoneNumberLabel.setText("Phone Number");
 
       try {
-         ModShipPhoneNumberField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)###-####")));
+         ModifyTabShipPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
       } catch (java.text.ParseException ex) {
          ex.printStackTrace();
       }
-      ModShipPhoneNumberField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabShipPhoneField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModShipPhoneNumberFieldFocusGained(evt);
+            ModifyTabShipPhoneFieldFocusGained(evt);
          }
       });
 
@@ -531,63 +583,63 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ModBillStateLabel.setText("State *");
 
-      ModBillStateDropDown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "Washington D.C.", "West Virginia", "Wisconsin", "Wyoming" }));
-      ModBillStateDropDown.addActionListener(new java.awt.event.ActionListener() {
+      ModifyTabBillStateDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select", "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "Washington D.C.", "West Virginia", "Wisconsin", "Wyoming" }));
+      ModifyTabBillStateDropdown.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ModBillStateDropDownActionPerformed(evt);
+            ModifyTabBillStateDropdownActionPerformed(evt);
          }
       });
 
       ModBillZipCodeLabel.setText("Zip Code *");
 
       try {
-         ModBillZipCodeField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+         ModifyTabBillZIPField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
       } catch (java.text.ParseException ex) {
          ex.printStackTrace();
       }
-      ModBillZipCodeField.addActionListener(new java.awt.event.ActionListener() {
+      ModifyTabBillZIPField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ModBillZipCodeFieldActionPerformed(evt);
+            ModifyTabBillZIPFieldActionPerformed(evt);
          }
       });
-      ModBillZipCodeField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabBillZIPField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModBillZipCodeFieldFocusGained(evt);
+            ModifyTabBillZIPFieldFocusGained(evt);
          }
       });
 
-      ModBillFirstNameField.addActionListener(new java.awt.event.ActionListener() {
+      ModifyTabBillFNameField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
-            ModBillFirstNameFieldActionPerformed(evt);
+            ModifyTabBillFNameFieldActionPerformed(evt);
          }
       });
-      ModBillFirstNameField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabBillFNameField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModBillFirstNameFieldFocusGained(evt);
-         }
-      });
-
-      ModBillLastNameField.addFocusListener(new java.awt.event.FocusAdapter() {
-         public void focusGained(java.awt.event.FocusEvent evt) {
-            ModBillLastNameFieldFocusGained(evt);
+            ModifyTabBillFNameFieldFocusGained(evt);
          }
       });
 
-      ModBillAddress1Field.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabBillLNameField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModBillAddress1FieldFocusGained(evt);
+            ModifyTabBillLNameFieldFocusGained(evt);
          }
       });
 
-      ModBillAddress2Field.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabBillAddress1Field.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModBillAddress2FieldFocusGained(evt);
+            ModifyTabBillAddress1FieldFocusGained(evt);
          }
       });
 
-      ModBillCityField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabBillAddress2Field.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModBillCityFieldFocusGained(evt);
+            ModifyTabBillAddress2FieldFocusGained(evt);
+         }
+      });
+
+      ModifyTabBillCityField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            ModifyTabBillCityFieldFocusGained(evt);
          }
       });
 
@@ -595,13 +647,13 @@ public class LoginScreen extends javax.swing.JFrame {
       ModBillPhoneNumberLabel.setText("Phone Number");
 
       try {
-         ModBillPhoneNumberField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)###-####")));
+         ModifyTabBillPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)###-####")));
       } catch (java.text.ParseException ex) {
          ex.printStackTrace();
       }
-      ModBillPhoneNumberField.addFocusListener(new java.awt.event.FocusAdapter() {
+      ModifyTabBillPhoneField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
-            ModBillPhoneNumberFieldFocusGained(evt);
+            ModifyTabBillPhoneFieldFocusGained(evt);
          }
       });
 
@@ -611,9 +663,25 @@ public class LoginScreen extends javax.swing.JFrame {
       BillingInfoLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
       BillingInfoLabel.setText("Billing Information");
 
-      btnModSave.setText("Save");
+      ModifyTabSaveButton.setText("Save");
+      ModifyTabSaveButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ModifyTabSaveButtonActionPerformed(evt);
+         }
+      });
 
-      btnModCancel.setText("Cancel");
+      ModifyTabCancelButton.setText("Cancel");
+      ModifyTabCancelButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ModifyTabCancelButtonActionPerformed(evt);
+         }
+      });
+
+      try {
+         ModifyTabCardNumField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("################")));
+      } catch (java.text.ParseException ex) {
+         ex.printStackTrace();
+      }
 
       javax.swing.GroupLayout ModifyCustomerInfoLayout = new javax.swing.GroupLayout(ModifyCustomerInfo);
       ModifyCustomerInfo.setLayout(ModifyCustomerInfoLayout);
@@ -627,47 +695,44 @@ public class LoginScreen extends javax.swing.JFrame {
                      .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                      .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                         .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                           .addComponent(ModShipFirstNameLabel)
+                           .addComponent(ModShipLastNameLabel)
+                           .addComponent(ModShipCityLabel)
+                           .addComponent(ModShipAddress1Label)
+                           .addComponent(ModShipAddress2Label))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                           .addComponent(ModifyTabShipAddress2Field)
+                           .addComponent(ModifyTabShipAddress1Field)
+                           .addComponent(ModifyTabShipFNameField)
+                           .addComponent(ModifyTabShipLNameField)
                            .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
-                              .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                 .addComponent(ModShipFirstNameLabel)
-                                 .addComponent(ModShipLastNameLabel)
-                                 .addComponent(ModShipCityLabel)
-                                 .addComponent(ModShipAddress1Label)
-                                 .addComponent(ModShipAddress2Label))
-                              .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                              .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                 .addComponent(ModShipAddress2Field)
-                                 .addComponent(ModShipAddress1Field)
-                                 .addComponent(ModShpFirstNameField)
-                                 .addComponent(ModShipLastNameField)
-                                 .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
-                                    .addComponent(ModShipStateDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ModShipZipCode)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(ModShipZipCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                 .addComponent(ModShipCityField, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                           .addComponent(ModShipStateLabel)
-                           .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
-                              .addComponent(ModShipPhoneNumberLabel)
-                              .addGap(18, 18, 18)
-                              .addComponent(ModShipPhoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                           .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
-                              .addComponent(EmailAddress1)
-                              .addGap(18, 18, 18)
-                              .addComponent(UpdEmailAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                              .addComponent(ModifyTabShipStateDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                               .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                              .addComponent(btnUpdLoad, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                              .addComponent(ModShipZipCode)
+                              .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                              .addComponent(ModifyTabShipZIPField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                           .addComponent(ModifyTabShipCityField, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                     .addComponent(ModShipStateLabel)
+                     .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
+                        .addComponent(ModShipPhoneNumberLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(ModifyTabShipPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                     .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
+                        .addComponent(EmailAddress1)
+                        .addGap(18, 18, 18)
+                        .addComponent(ModifyTabEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ModifyTabLoadButton, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                   .addContainerGap())
                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ModifyCustomerInfoLayout.createSequentialGroup()
                   .addComponent(ShippingInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                      .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
-                        .addComponent(btnModSave)
+                        .addComponent(ModifyTabSaveButton)
                         .addGap(28, 28, 28)
-                        .addComponent(btnModCancel))
+                        .addComponent(ModifyTabCancelButton))
                      .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                            .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -676,12 +741,11 @@ public class LoginScreen extends javax.swing.JFrame {
                               .addComponent(ModBillCardNumberLabel))
                            .addGap(11, 11, 11)
                            .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                              .addComponent(ModBillCCNbrField, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
-                              .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                 .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
-                                    .addComponent(ModBillAcctCardExpDate, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                                    .addGap(190, 190, 190))
-                                 .addComponent(ModBillCCHolderField))))
+                              .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
+                                 .addComponent(ModifyTabCardExpField, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                                 .addGap(190, 190, 190))
+                              .addComponent(ModifyTabCardNameField)
+                              .addComponent(ModifyTabCardNumField)))
                         .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                            .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                               .addComponent(ModBillFirstNameLabel)
@@ -693,20 +757,20 @@ public class LoginScreen extends javax.swing.JFrame {
                               .addComponent(ModBillPhoneNumberLabel))
                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                            .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                              .addComponent(ModBillAddress2Field)
-                              .addComponent(ModBillAddress1Field)
-                              .addComponent(ModBillFirstNameField)
-                              .addComponent(ModBillLastNameField)
+                              .addComponent(ModifyTabBillAddress2Field)
+                              .addComponent(ModifyTabBillAddress1Field)
+                              .addComponent(ModifyTabBillFNameField)
+                              .addComponent(ModifyTabBillLNameField)
                               .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
-                                 .addComponent(ModBillStateDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                 .addComponent(ModifyTabBillStateDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                  .addComponent(ModBillZipCodeLabel)
                                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                 .addComponent(ModBillZipCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                              .addComponent(ModBillCityField, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                 .addComponent(ModifyTabBillZIPField, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                              .addComponent(ModifyTabBillCityField, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                               .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                                  .addGap(22, 22, 22)
-                                 .addComponent(ModBillPhoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                 .addComponent(ModifyTabBillPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addComponent(BillingInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                   .addGap(81, 81, 81))
                .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
@@ -724,8 +788,8 @@ public class LoginScreen extends javax.swing.JFrame {
                   .addGap(24, 24, 24)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                      .addComponent(EmailAddress1)
-                     .addComponent(UpdEmailAddressField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(btnUpdLoad))
+                     .addComponent(ModifyTabEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ModifyTabLoadButton))
                   .addGap(35, 35, 35)
                   .addComponent(ShippingInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                   .addGap(18, 18, 18))
@@ -735,15 +799,15 @@ public class LoginScreen extends javax.swing.JFrame {
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                      .addComponent(ModBillCardNumberLabel)
-                     .addComponent(ModBillCCNbrField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                     .addComponent(ModifyTabCardNumField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                      .addComponent(ModBillCardExpDateLabel)
-                     .addComponent(ModBillAcctCardExpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                     .addComponent(ModifyTabCardExpField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                      .addComponent(ModBillCardHolderNameLabel)
-                     .addComponent(ModBillCCHolderField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                     .addComponent(ModifyTabCardNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                   .addGap(10, 10, 10)))
             .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
@@ -754,32 +818,32 @@ public class LoginScreen extends javax.swing.JFrame {
                         .addComponent(ModBillLastNameLabel)
                         .addGap(7, 7, 7))
                      .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
-                        .addComponent(ModBillFirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ModifyTabBillFNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ModBillLastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ModifyTabBillLNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)))
                   .addGap(3, 3, 3)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                      .addComponent(ModBillAddress1LineLabel)
-                     .addComponent(ModBillAddress1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                     .addComponent(ModifyTabBillAddress1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                     .addComponent(ModBillAddress2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ModifyTabBillAddress2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModBillAddress2LineLabel))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                     .addComponent(ModBillCityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ModifyTabBillCityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModBillCityLabel))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                     .addComponent(ModBillStateDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ModifyTabBillStateDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModBillZipCodeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(ModBillZipCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ModifyTabBillZIPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModBillStateLabel))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                      .addComponent(ModBillPhoneNumberLabel)
-                     .addComponent(ModBillPhoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                     .addComponent(ModifyTabBillPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                      .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
@@ -788,43 +852,48 @@ public class LoginScreen extends javax.swing.JFrame {
                         .addComponent(ModShipLastNameLabel)
                         .addGap(7, 7, 7))
                      .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
-                        .addComponent(ModShpFirstNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ModifyTabShipFNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ModShipLastNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ModifyTabShipLNameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(5, 5, 5)))
                   .addGap(3, 3, 3)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                      .addComponent(ModShipAddress1Label)
-                     .addComponent(ModShipAddress1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                     .addComponent(ModifyTabShipAddress1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                     .addComponent(ModShipAddress2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ModifyTabShipAddress2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModShipAddress2Label))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                     .addComponent(ModShipCityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ModifyTabShipCityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModShipCityLabel))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                      .addComponent(ModShipStateLabel)
                      .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ModShipStateDropDown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ModifyTabShipStateDropdown, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ModShipZipCode, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ModShipZipCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ModifyTabShipZIPField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                   .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                   .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                     .addComponent(ModShipPhoneNumberField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     .addComponent(ModifyTabShipPhoneField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModShipPhoneNumberLabel))))
             .addGap(25, 25, 25)
             .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(btnModSave, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(btnModCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addComponent(ModifyTabSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+               .addComponent(ModifyTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGap(66, 66, 66))
       );
 
       tabCstLogin.addTab("Modify Customer Info", ModifyCustomerInfo);
 
-      jButton1.setText("Load Demo Customers");
+      TestTabLoadCustomersButton.setText("Load Demo Customers");
+      TestTabLoadCustomersButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            TestTabLoadCustomersButtonActionPerformed(evt);
+         }
+      });
 
       jButton2.setText("Place Demo Orders");
 
@@ -841,7 +910,7 @@ public class LoginScreen extends javax.swing.JFrame {
          .addGroup(TestLayout.createSequentialGroup()
             .addGap(20, 20, 20)
             .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-               .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+               .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -852,7 +921,7 @@ public class LoginScreen extends javax.swing.JFrame {
          TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(TestLayout.createSequentialGroup()
             .addGap(52, 52, 52)
-            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -883,105 +952,235 @@ public class LoginScreen extends javax.swing.JFrame {
       pack();
    }// </editor-fold>//GEN-END:initComponents
 
-   private void EmailAddressFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_EmailAddressFieldFocusGained
-      EmailAddressField.selectAll();
-   }//GEN-LAST:event_EmailAddressFieldFocusGained
+   private void NewTabEmailFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NewTabEmailFieldFocusGained
+      NewTabEmailField.selectAll();
+   }//GEN-LAST:event_NewTabEmailFieldFocusGained
 
-   private void ModBillPhoneNumberFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModBillPhoneNumberFieldFocusGained
+   private void ModifyTabBillPhoneFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillPhoneFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillPhoneNumberFieldFocusGained
+   }//GEN-LAST:event_ModifyTabBillPhoneFieldFocusGained
 
-   private void ModBillCityFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModBillCityFieldFocusGained
+   private void ModifyTabBillCityFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillCityFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillCityFieldFocusGained
+   }//GEN-LAST:event_ModifyTabBillCityFieldFocusGained
 
-   private void ModBillAddress2FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModBillAddress2FieldFocusGained
+   private void ModifyTabBillAddress2FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillAddress2FieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillAddress2FieldFocusGained
+   }//GEN-LAST:event_ModifyTabBillAddress2FieldFocusGained
 
-   private void ModBillAddress1FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModBillAddress1FieldFocusGained
+   private void ModifyTabBillAddress1FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillAddress1FieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillAddress1FieldFocusGained
+   }//GEN-LAST:event_ModifyTabBillAddress1FieldFocusGained
 
-   private void ModBillLastNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModBillLastNameFieldFocusGained
+   private void ModifyTabBillLNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillLNameFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillLastNameFieldFocusGained
+   }//GEN-LAST:event_ModifyTabBillLNameFieldFocusGained
 
-   private void ModBillFirstNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModBillFirstNameFieldFocusGained
+   private void ModifyTabBillFNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillFNameFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillFirstNameFieldFocusGained
+   }//GEN-LAST:event_ModifyTabBillFNameFieldFocusGained
 
-   private void ModBillFirstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModBillFirstNameFieldActionPerformed
+   private void ModifyTabBillFNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillFNameFieldActionPerformed
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillFirstNameFieldActionPerformed
+   }//GEN-LAST:event_ModifyTabBillFNameFieldActionPerformed
 
-   private void ModBillZipCodeFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModBillZipCodeFieldFocusGained
+   private void ModifyTabBillZIPFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillZIPFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillZipCodeFieldFocusGained
+   }//GEN-LAST:event_ModifyTabBillZIPFieldFocusGained
 
-   private void ModBillZipCodeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModBillZipCodeFieldActionPerformed
+   private void ModifyTabBillZIPFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillZIPFieldActionPerformed
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillZipCodeFieldActionPerformed
+   }//GEN-LAST:event_ModifyTabBillZIPFieldActionPerformed
 
-   private void ModBillStateDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModBillStateDropDownActionPerformed
+   private void ModifyTabBillStateDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillStateDropdownActionPerformed
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillStateDropDownActionPerformed
+   }//GEN-LAST:event_ModifyTabBillStateDropdownActionPerformed
 
-   private void ModShipPhoneNumberFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModShipPhoneNumberFieldFocusGained
+   private void ModifyTabShipPhoneFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipPhoneFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShipPhoneNumberFieldFocusGained
+   }//GEN-LAST:event_ModifyTabShipPhoneFieldFocusGained
 
-   private void ModShipZipCodeFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModShipZipCodeFieldFocusGained
+   private void ModifyTabShipZIPFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipZIPFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShipZipCodeFieldFocusGained
+   }//GEN-LAST:event_ModifyTabShipZIPFieldFocusGained
 
-   private void ModShipZipCodeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModShipZipCodeFieldActionPerformed
+   private void ModifyTabShipZIPFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipZIPFieldActionPerformed
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShipZipCodeFieldActionPerformed
+   }//GEN-LAST:event_ModifyTabShipZIPFieldActionPerformed
 
-   private void ModShipStateDropDownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModShipStateDropDownActionPerformed
+   private void ModifyTabShipStateDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipStateDropdownActionPerformed
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShipStateDropDownActionPerformed
+   }//GEN-LAST:event_ModifyTabShipStateDropdownActionPerformed
 
-   private void ModShipCityFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModShipCityFieldFocusGained
+   private void ModifyTabShipCityFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipCityFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShipCityFieldFocusGained
+   }//GEN-LAST:event_ModifyTabShipCityFieldFocusGained
 
-   private void ModShipAddress2FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModShipAddress2FieldFocusGained
+   private void ModifyTabShipAddress2FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipAddress2FieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShipAddress2FieldFocusGained
+   }//GEN-LAST:event_ModifyTabShipAddress2FieldFocusGained
 
-   private void ModShipAddress1FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModShipAddress1FieldFocusGained
+   private void ModifyTabShipAddress1FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipAddress1FieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShipAddress1FieldFocusGained
+   }//GEN-LAST:event_ModifyTabShipAddress1FieldFocusGained
 
-   private void ModShipLastNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModShipLastNameFieldFocusGained
+   private void ModifyTabShipLNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipLNameFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShipLastNameFieldFocusGained
+   }//GEN-LAST:event_ModifyTabShipLNameFieldFocusGained
 
-   private void ModShpFirstNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModShpFirstNameFieldFocusGained
+   private void ModifyTabShipFNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipFNameFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShpFirstNameFieldFocusGained
+   }//GEN-LAST:event_ModifyTabShipFNameFieldFocusGained
 
-   private void ModShpFirstNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModShpFirstNameFieldActionPerformed
+   private void ModifyTabShipFNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipFNameFieldActionPerformed
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModShpFirstNameFieldActionPerformed
+   }//GEN-LAST:event_ModifyTabShipFNameFieldActionPerformed
 
-   private void ModBillCCHolderFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModBillCCHolderFieldFocusGained
+   private void ModifyTabCardNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabCardNameFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillCCHolderFieldFocusGained
+   }//GEN-LAST:event_ModifyTabCardNameFieldFocusGained
 
-   private void ModBillCCNbrFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModBillCCNbrFieldFocusGained
+   private void ModifyTabEmailFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabEmailFieldFocusGained
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillCCNbrFieldFocusGained
+   }//GEN-LAST:event_ModifyTabEmailFieldFocusGained
 
-   private void UpdEmailAddressFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_UpdEmailAddressFieldFocusGained
+   private void ModifyTabCardNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCardNameFieldActionPerformed
       // TODO add your handling code here:
-   }//GEN-LAST:event_UpdEmailAddressFieldFocusGained
+   }//GEN-LAST:event_ModifyTabCardNameFieldActionPerformed
 
-   private void ModBillCCHolderFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModBillCCHolderFieldActionPerformed
+   private void LoginTabOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabOKButtonActionPerformed
       // TODO add your handling code here:
-   }//GEN-LAST:event_ModBillCCHolderFieldActionPerformed
+   }//GEN-LAST:event_LoginTabOKButtonActionPerformed
+
+   private void LoginTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabCancelButtonActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_LoginTabCancelButtonActionPerformed
+
+   private void NewTabSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabSaveButtonActionPerformed
+      
+		//input/error handling
+		//reinitialize error handling variables first
+		errortext = "";
+		
+		//test each field to confirm it is not empty; adjust error handling variable if it is
+		if(NewTabAnswerField.getText().equals(""))
+		{
+			errortext = "Security answer" + errortext;
+			NewTabAnswerField.requestFocus();
+		} //end security answer if
+		
+		if(NewTabQuestionDropdown.getSelectedIndex() == 0)
+		{
+			errortext = "Security question\n" + errortext;
+			NewTabQuestionDropdown.requestFocus();
+		} //end security question if
+		
+		if(NewTabConfirmPasswordField.getText().equals(""))
+		{
+			errortext = "Confirm password\n" + errortext;
+			NewTabConfirmPasswordField.requestFocus();
+		} //end confirm password if
+		
+		if(NewTabCreatePasswordField.getText().equals(""))
+		{
+			errortext = "Create password\n" + errortext;
+			NewTabCreatePasswordField.requestFocus();
+		} //end create password if
+		
+		if(NewTabEmailField.getText().equals(""))
+		{
+			errortext = "Email address\n" + errortext;
+			NewTabEmailField.requestFocus();
+		} //end email if
+		
+		//Error handling. If errortext variable is blank, then check to see if password fields match.
+		//If passwords match, create user object and insert into treemap. If passwords do not
+		//match, or if any fields are blank (and errortext has data), inform user.
+		if(errortext.equals(""))
+		{
+			if(NewTabCreatePasswordField.getText().equals(NewTabConfirmPasswordField.getText()))
+			{			
+				//create new customer using field data, and save it into the keymap
+				currentcust = new Customer(NewTabEmailField.getText(), NewTabCreatePasswordField.getText(), 
+				  NewTabQuestionDropdown.getSelectedIndex(), NewTabAnswerField.getText());
+
+				custmap.put(currentcust.getEmail(), currentcust);			
+				custmap.put(currentcust.getCustID(), currentcust);				
+			
+				JOptionPane.showMessageDialog(rootPane, "Your account has been created!", "Data saved", WIDTH);
+			} //end passwords-matching if
+			else
+			{
+				JOptionPane.showMessageDialog(rootPane, "Passwords do not match. Please enter\nmatching passwords.", "Password error", WIDTH);
+			} //end passwords-mismatching else
+		} //end all-fields-filled if
+		else
+		{
+			JOptionPane.showMessageDialog(rootPane, "Please enter all required fields to create an account.\nMissing fields are:\n" 
+						  + errortext, "Required fields missing", WIDTH);
+		} //end not-all-fields-filled else
+		
+   }//GEN-LAST:event_NewTabSaveButtonActionPerformed
+
+   private void NewTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabCancelButtonActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_NewTabCancelButtonActionPerformed
+
+   private void ForgotTabOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabOKButtonActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_ForgotTabOKButtonActionPerformed
+
+   private void ForgotTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabCancelButtonActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_ForgotTabCancelButtonActionPerformed
+
+   private void ModifyTabLoadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabLoadButtonActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_ModifyTabLoadButtonActionPerformed
+
+   private void ModifyTabSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabSaveButtonActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_ModifyTabSaveButtonActionPerformed
+
+   private void ModifyTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCancelButtonActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_ModifyTabCancelButtonActionPerformed
+
+   private void TestTabLoadCustomersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestTabLoadCustomersButtonActionPerformed
+
+		// initialize demo customers
+		Customer democust1 = new Customer("joe@gmail.com", "password", 2, "Fido");
+		Customer democust2 = new Customer("sally@gmail.com", "sallyrules", 3, "Central");
+		
+		// populate Joe with some data, as if he has placed orders before
+		democust1.setBillAddress("123 Main St", "", "Springfield", "Illinois", 12345, "(610)867-5309");
+		democust1.setShipAddress("123 Main St", "", "Springfield", "Illinois", 12345, "(610)867-5309");
+		democust1.setCCName("Joseph F Smith");
+		democust1.setFName("Joe");
+		democust1.setLName("Smith");
+		democust1.setCCnum("1234567890987654");
+		democust1.setCCExp("03/14/15");
+		democust1.addOrder(42);
+		democust1.addOrder(320);
+		democust1.addOrder(786);
+		
+		// Sally just created an account; no additional data for her
+		
+		// store demo customers in treemap, keyed on email and ID
+		custmap.put(democust1.getEmail(), democust1);
+		custmap.put(democust1.getCustID(), democust1);
+		custmap.put(democust2.getEmail(), democust2);
+		custmap.put(democust2.getCustID(), democust2);
+		
+   }//GEN-LAST:event_TestTabLoadCustomersButtonActionPerformed
+
+   private void ForgotTabDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabDropdownActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_ForgotTabDropdownActionPerformed
+
+   private void NewTabCreatePasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabCreatePasswordFieldActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_NewTabCreatePasswordFieldActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1013,89 +1212,90 @@ public class LoginScreen extends javax.swing.JFrame {
                 new LoginScreen().setVisible(true);
             }
         });
-    }
+	 }
+	 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JLabel BillingInfoLabel;
-   private javax.swing.JPasswordField ConfirmNewCustomerPassword;
    private javax.swing.JLabel ConfirmNewPasswordLabel;
-   private javax.swing.JPasswordField CreateNewCustomerPassword;
-   private javax.swing.JTextField CstEMailAddress;
    private javax.swing.JLabel CstEMailAddressLabel;
-   private javax.swing.JPasswordField CstPassword;
    private javax.swing.JLabel CstPasswordLabel;
    private javax.swing.JPanel CustomerLogin;
    private javax.swing.JLabel EmailAddress;
    private javax.swing.JLabel EmailAddress1;
-   private javax.swing.JTextField EmailAddressField;
    private javax.swing.JPanel ForgotPassword;
-   private javax.swing.JFormattedTextField ModBillAcctCardExpDate;
-   private javax.swing.JTextField ModBillAddress1Field;
+   private javax.swing.JTextField ForgotTabAnswerField;
+   private javax.swing.JButton ForgotTabCancelButton;
+   private javax.swing.JComboBox ForgotTabDropdown;
+   private javax.swing.JTextField ForgotTabEmailField;
+   private javax.swing.JButton ForgotTabOKButton;
+   private javax.swing.JButton LoginTabCancelButton;
+   private javax.swing.JTextField LoginTabEmailField;
+   private javax.swing.JButton LoginTabOKButton;
+   private javax.swing.JPasswordField LoginTabPasswordField;
    private javax.swing.JLabel ModBillAddress1LineLabel;
-   private javax.swing.JTextField ModBillAddress2Field;
    private javax.swing.JLabel ModBillAddress2LineLabel;
-   private javax.swing.JTextField ModBillCCHolderField;
-   private javax.swing.JTextField ModBillCCNbrField;
    private javax.swing.JLabel ModBillCardExpDateLabel;
    private javax.swing.JLabel ModBillCardHolderNameLabel;
    private javax.swing.JLabel ModBillCardNumberLabel;
-   private javax.swing.JTextField ModBillCityField;
    private javax.swing.JLabel ModBillCityLabel;
-   private javax.swing.JTextField ModBillFirstNameField;
    private javax.swing.JLabel ModBillFirstNameLabel;
-   private javax.swing.JTextField ModBillLastNameField;
    private javax.swing.JLabel ModBillLastNameLabel;
-   private javax.swing.JFormattedTextField ModBillPhoneNumberField;
    private javax.swing.JLabel ModBillPhoneNumberLabel;
-   private javax.swing.JComboBox ModBillStateDropDown;
    private javax.swing.JLabel ModBillStateLabel;
-   private javax.swing.JFormattedTextField ModBillZipCodeField;
    private javax.swing.JLabel ModBillZipCodeLabel;
-   private javax.swing.JTextField ModShipAddress1Field;
    private javax.swing.JLabel ModShipAddress1Label;
-   private javax.swing.JTextField ModShipAddress2Field;
    private javax.swing.JLabel ModShipAddress2Label;
-   private javax.swing.JTextField ModShipCityField;
    private javax.swing.JLabel ModShipCityLabel;
    private javax.swing.JLabel ModShipFirstNameLabel;
-   private javax.swing.JTextField ModShipLastNameField;
    private javax.swing.JLabel ModShipLastNameLabel;
-   private javax.swing.JFormattedTextField ModShipPhoneNumberField;
    private javax.swing.JLabel ModShipPhoneNumberLabel;
-   private javax.swing.JComboBox ModShipStateDropDown;
    private javax.swing.JLabel ModShipStateLabel;
    private javax.swing.JLabel ModShipZipCode;
-   private javax.swing.JFormattedTextField ModShipZipCodeField;
-   private javax.swing.JTextField ModShpFirstNameField;
    private javax.swing.JPanel ModifyCustomerInfo;
+   private javax.swing.JTextField ModifyTabBillAddress1Field;
+   private javax.swing.JTextField ModifyTabBillAddress2Field;
+   private javax.swing.JTextField ModifyTabBillCityField;
+   private javax.swing.JTextField ModifyTabBillFNameField;
+   private javax.swing.JTextField ModifyTabBillLNameField;
+   private javax.swing.JFormattedTextField ModifyTabBillPhoneField;
+   private javax.swing.JComboBox ModifyTabBillStateDropdown;
+   private javax.swing.JFormattedTextField ModifyTabBillZIPField;
+   private javax.swing.JButton ModifyTabCancelButton;
+   private javax.swing.JFormattedTextField ModifyTabCardExpField;
+   private javax.swing.JTextField ModifyTabCardNameField;
+   private javax.swing.JFormattedTextField ModifyTabCardNumField;
+   private javax.swing.JTextField ModifyTabEmailField;
+   private javax.swing.JButton ModifyTabLoadButton;
+   private javax.swing.JButton ModifyTabSaveButton;
+   private javax.swing.JTextField ModifyTabShipAddress1Field;
+   private javax.swing.JTextField ModifyTabShipAddress2Field;
+   private javax.swing.JTextField ModifyTabShipCityField;
+   private javax.swing.JTextField ModifyTabShipFNameField;
+   private javax.swing.JTextField ModifyTabShipLNameField;
+   private javax.swing.JFormattedTextField ModifyTabShipPhoneField;
+   private javax.swing.JComboBox ModifyTabShipStateDropdown;
+   private javax.swing.JFormattedTextField ModifyTabShipZIPField;
    private javax.swing.JPanel NewCustomer;
-   private javax.swing.JTextField NewCustomerSecurityAnswer;
-   private javax.swing.JComboBox NewCustomerSecurityQuestion;
    private javax.swing.JLabel NewPasswordLabel;
+   private javax.swing.JTextField NewTabAnswerField;
+   private javax.swing.JButton NewTabCancelButton;
+   private javax.swing.JPasswordField NewTabConfirmPasswordField;
+   private javax.swing.JPasswordField NewTabCreatePasswordField;
+   private javax.swing.JTextField NewTabEmailField;
+   private javax.swing.JComboBox NewTabQuestionDropdown;
+   private javax.swing.JButton NewTabSaveButton;
    private javax.swing.JLabel OlympicPride;
    private javax.swing.JLabel OlympicPride1;
    private javax.swing.JLabel OlympicPride2;
    private javax.swing.JLabel OlympicPride5;
    private javax.swing.JLabel ReqFieldInstruct;
    private javax.swing.JLabel ReqFieldInstruct1;
-   private javax.swing.JTextField ResetAnswSecurityQuestion;
    private javax.swing.JLabel ResetAnswer;
-   private javax.swing.JComboBox ResetComboSecurityQuestion;
-   private javax.swing.JTextField ResetEMailAddress;
    private javax.swing.JLabel ResetEMailAddressLabel;
    private javax.swing.JLabel ResetSecurityQuestionLabel;
    private javax.swing.JLabel ShippingInfoLabel;
    private javax.swing.JPanel Test;
-   private javax.swing.JTextField UpdEmailAddressField;
-   private javax.swing.JButton btnCstCancel;
-   private javax.swing.JButton btnCstOK;
-   private javax.swing.JButton btnModCancel;
-   private javax.swing.JButton btnModSave;
-   private javax.swing.JButton btnNewCustomerCancel;
-   private javax.swing.JButton btnNewCustomerSave;
-   private javax.swing.JButton btnResetCancel;
-   private javax.swing.JButton btnResetOK;
-   private javax.swing.JButton btnUpdLoad;
-   private javax.swing.JButton jButton1;
+   private javax.swing.JButton TestTabLoadCustomersButton;
    private javax.swing.JButton jButton2;
    private javax.swing.JButton jButton3;
    private javax.swing.JButton jButton4;

@@ -86,13 +86,13 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="CstEMailAddress" max="32767" attributes="0"/>
-                                          <Component id="CstPassword" pref="206" max="32767" attributes="0"/>
+                                          <Component id="LoginTabEmailField" max="32767" attributes="0"/>
+                                          <Component id="LoginTabPasswordField" pref="206" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="btnCstOK" max="32767" attributes="0"/>
-                                          <Component id="btnCstCancel" min="-2" pref="97" max="-2" attributes="0"/>
+                                          <Component id="LoginTabOKButton" max="32767" attributes="0"/>
+                                          <Component id="LoginTabCancelButton" min="-2" pref="97" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="OlympicPride" alignment="0" min="-2" pref="425" max="-2" attributes="0"/>
@@ -114,15 +114,15 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="CstEMailAddressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="CstEMailAddress" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="LoginTabEmailField" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="btnCstOK" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="LoginTabOKButton" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="CstPasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CstPassword" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="btnCstCancel" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="LoginTabPasswordField" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="LoginTabCancelButton" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="308" max="32767" attributes="0"/>
                   </Group>
@@ -140,22 +140,25 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="CstEMailAddress">
+            <Component class="javax.swing.JTextField" name="LoginTabEmailField">
             </Component>
-            <Component class="javax.swing.JButton" name="btnCstOK">
+            <Component class="javax.swing.JButton" name="LoginTabOKButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="OK"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginTabOKButtonActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCstCancel">
+            <Component class="javax.swing.JButton" name="LoginTabCancelButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancel"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginTabCancelButtonActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="CstPassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-              </Properties>
+            <Component class="javax.swing.JPasswordField" name="LoginTabPasswordField">
             </Component>
             <Component class="javax.swing.JLabel" name="OlympicPride">
               <Properties>
@@ -215,18 +218,18 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="EmailAddressField" max="32767" attributes="0"/>
-                                          <Component id="CreateNewCustomerPassword" max="32767" attributes="0"/>
-                                          <Component id="NewCustomerSecurityQuestion" max="32767" attributes="0"/>
-                                          <Component id="NewCustomerSecurityAnswer" max="32767" attributes="0"/>
-                                          <Component id="ConfirmNewCustomerPassword" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="NewTabEmailField" max="32767" attributes="0"/>
+                                          <Component id="NewTabCreatePasswordField" max="32767" attributes="0"/>
+                                          <Component id="NewTabQuestionDropdown" max="32767" attributes="0"/>
+                                          <Component id="NewTabAnswerField" max="32767" attributes="0"/>
+                                          <Component id="NewTabConfirmPasswordField" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnNewCustomerSave" min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Component id="btnNewCustomerCancel" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <Component id="NewTabSaveButton" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <Component id="NewTabCancelButton" min="-2" pref="97" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="68" max="32767" attributes="0"/>
                           </Group>
@@ -247,35 +250,35 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="EmailAddress" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="EmailAddressField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnNewCustomerSave" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="NewTabEmailField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NewTabSaveButton" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="NewPasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="CreateNewCustomerPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NewTabCreatePasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ConfirmNewCustomerPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="NewTabConfirmPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ConfirmNewPasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Component id="btnNewCustomerCancel" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="NewTabCancelButton" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="NewCustomerSecurityQuestion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NewTabQuestionDropdown" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="NewCustomerSecurityAnswer" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NewTabAnswerField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="280" max="32767" attributes="0"/>
@@ -300,9 +303,9 @@
                 <Property name="text" type="java.lang.String" value="Email Address *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="EmailAddressField">
+            <Component class="javax.swing.JTextField" name="NewTabEmailField">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="EmailAddressFieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NewTabEmailFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="OlympicPride1">
@@ -323,15 +326,12 @@
                 <Property name="text" type="java.lang.String" value="Confirm New Password *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="CreateNewCustomerPassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField2"/>
-              </Properties>
+            <Component class="javax.swing.JPasswordField" name="NewTabCreatePasswordField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabCreatePasswordFieldActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="ConfirmNewCustomerPassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField2"/>
-              </Properties>
+            <Component class="javax.swing.JPasswordField" name="NewTabConfirmPasswordField">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -343,29 +343,35 @@
                 <Property name="text" type="java.lang.String" value="Security Answer *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="NewCustomerSecurityQuestion">
+            <Component class="javax.swing.JComboBox" name="NewTabQuestionDropdown">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="Select One:"/>
-                    <StringItem index="1" value="What is your mother maiden name"/>
-                    <StringItem index="2" value="What is your dog name"/>
-                    <StringItem index="3" value="What was your school name"/>
+                    <StringItem index="1" value="1. What is your mother&apos;s maiden name?"/>
+                    <StringItem index="2" value="2. What is your favorite pet&apos;s name?"/>
+                    <StringItem index="3" value="3. What was the name of your elementary school?"/>
                   </StringArray>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="NewCustomerSecurityAnswer">
+            <Component class="javax.swing.JTextField" name="NewTabAnswerField">
             </Component>
-            <Component class="javax.swing.JButton" name="btnNewCustomerSave">
+            <Component class="javax.swing.JButton" name="NewTabSaveButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Save"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabSaveButtonActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnNewCustomerCancel">
+            <Component class="javax.swing.JButton" name="NewTabCancelButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancel"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabCancelButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
@@ -402,19 +408,19 @@
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="ResetAnswSecurityQuestion" max="32767" attributes="0"/>
-                                              <Component id="ResetComboSecurityQuestion" max="32767" attributes="0"/>
-                                              <Component id="ResetEMailAddress" max="32767" attributes="0"/>
+                                              <Component id="ForgotTabAnswerField" max="32767" attributes="0"/>
+                                              <Component id="ForgotTabDropdown" max="32767" attributes="0"/>
+                                              <Component id="ForgotTabEmailField" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="btnResetOK" max="32767" attributes="0"/>
-                                              <Component id="btnResetCancel" pref="93" max="32767" attributes="0"/>
+                                              <Component id="ForgotTabOKButton" max="32767" attributes="0"/>
+                                              <Component id="ForgotTabCancelButton" pref="93" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="479" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="414" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -435,25 +441,25 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ResetEMailAddress" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="ForgotTabEmailField" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="ResetEMailAddressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ResetComboSecurityQuestion" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="ForgotTabDropdown" min="-2" pref="32" max="-2" attributes="0"/>
                                   <Component id="ResetSecurityQuestionLabel" min="-2" pref="33" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="ResetAnswSecurityQuestion" pref="37" max="32767" attributes="0"/>
+                                  <Component id="ForgotTabAnswerField" pref="37" max="32767" attributes="0"/>
                                   <Component id="ResetAnswer" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Component id="btnResetOK" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="ForgotTabOKButton" min="-2" pref="32" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="btnResetCancel" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="ForgotTabCancelButton" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="230" max="-2" attributes="0"/>
@@ -472,32 +478,41 @@
                 <Property name="text" type="java.lang.String" value="Security Question *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="ResetComboSecurityQuestion">
+            <Component class="javax.swing.JComboBox" name="ForgotTabDropdown">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="Select One:"/>
-                    <StringItem index="1" value="What is your mother maiden name"/>
-                    <StringItem index="2" value="What is your dog name"/>
-                    <StringItem index="3" value="What was your school name"/>
+                    <StringItem index="1" value="1. What is your mother&apos;s maiden name?"/>
+                    <StringItem index="2" value="2. What is your favorite pet&apos;s name?"/>
+                    <StringItem index="3" value="3. What was the name of your elementary school?"/>
                   </StringArray>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ForgotTabDropdownActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ResetAnswSecurityQuestion">
+            <Component class="javax.swing.JTextField" name="ForgotTabAnswerField">
             </Component>
-            <Component class="javax.swing.JTextField" name="ResetEMailAddress">
+            <Component class="javax.swing.JTextField" name="ForgotTabEmailField">
             </Component>
-            <Component class="javax.swing.JButton" name="btnResetOK">
+            <Component class="javax.swing.JButton" name="ForgotTabOKButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="OK"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ForgotTabOKButtonActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnResetCancel">
+            <Component class="javax.swing.JButton" name="ForgotTabCancelButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancel"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ForgotTabCancelButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="OlympicPride2">
               <Properties>
@@ -558,32 +573,32 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="ModShipAddress2Field" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ModShipAddress1Field" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ModShpFirstNameField" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ModShipLastNameField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="ModifyTabShipAddress2Field" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="ModifyTabShipAddress1Field" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="ModifyTabShipFNameField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="ModifyTabShipLNameField" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="ModShipStateDropDown" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ModifyTabShipStateDropdown" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="ModShipZipCode" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="ModShipZipCodeField" min="-2" pref="75" max="-2" attributes="0"/>
+                                              <Component id="ModifyTabShipZIPField" min="-2" pref="75" max="-2" attributes="0"/>
                                           </Group>
-                                          <Component id="ModShipCityField" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
+                                          <Component id="ModifyTabShipCityField" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="ModShipStateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="ModShipPhoneNumberLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="ModShipPhoneNumberField" min="-2" pref="110" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabShipPhoneField" min="-2" pref="110" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="EmailAddress1" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="UpdEmailAddressField" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabEmailField" min="-2" pref="200" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnUpdLoad" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabLoadButton" min="-2" pref="76" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -593,9 +608,9 @@
                               <EmptySpace pref="300" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="btnModSave" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabSaveButton" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="btnModCancel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabCancelButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
@@ -606,12 +621,12 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="ModBillCCNbrField" pref="291" max="32767" attributes="0"/>
                                               <Group type="102" attributes="0">
-                                                  <Component id="ModBillAcctCardExpDate" pref="101" max="32767" attributes="0"/>
+                                                  <Component id="ModifyTabCardExpField" pref="101" max="32767" attributes="0"/>
                                                   <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="ModBillCCHolderField" max="32767" attributes="0"/>
+                                              <Component id="ModifyTabCardNameField" max="32767" attributes="0"/>
+                                              <Component id="ModifyTabCardNumField" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -626,21 +641,21 @@
                                           </Group>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="ModBillAddress2Field" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="ModBillAddress1Field" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="ModBillFirstNameField" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="ModBillLastNameField" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="ModifyTabBillAddress2Field" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="ModifyTabBillAddress1Field" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="ModifyTabBillFNameField" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="ModifyTabBillLNameField" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="ModBillStateDropDown" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ModifyTabBillStateDropdown" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Component id="ModBillZipCodeLabel" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="ModBillZipCodeField" min="-2" pref="75" max="-2" attributes="0"/>
+                                                  <Component id="ModifyTabBillZIPField" min="-2" pref="75" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="ModBillCityField" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
+                                              <Component id="ModifyTabBillCityField" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                                  <Component id="ModBillPhoneNumberField" min="-2" pref="110" max="-2" attributes="0"/>
+                                                  <Component id="ModifyTabBillPhoneField" min="-2" pref="110" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -668,8 +683,8 @@
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="EmailAddress1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="UpdEmailAddressField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnUpdLoad" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabEmailField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabLoadButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                               <Component id="ShippingInfoLabel" pref="22" max="32767" attributes="0"/>
@@ -681,17 +696,17 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ModBillCardNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ModBillCCNbrField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabCardNumField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ModBillCardExpDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ModBillAcctCardExpDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabCardExpField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ModBillCardHolderNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ModBillCCHolderField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabCardNameField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           </Group>
@@ -706,38 +721,38 @@
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="ModBillFirstNameField" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabBillFNameField" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="ModBillLastNameField" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabBillLNameField" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ModBillAddress1LineLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ModBillAddress1Field" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabBillAddress1Field" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ModBillAddress2Field" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabBillAddress2Field" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ModBillAddress2LineLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ModBillCityField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabBillCityField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ModBillCityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ModBillStateDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabBillStateDropdown" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ModBillZipCodeLabel" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                                  <Component id="ModBillZipCodeField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabBillZIPField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ModBillStateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ModBillPhoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ModBillPhoneNumberField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabBillPhoneField" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
@@ -749,47 +764,47 @@
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="ModShpFirstNameField" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabShipFNameField" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="ModShipLastNameField" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabShipLNameField" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ModShipAddress1Label" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="ModShipAddress1Field" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabShipAddress1Field" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ModShipAddress2Field" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabShipAddress2Field" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ModShipAddress2Label" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ModShipCityField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabShipCityField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ModShipCityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="ModShipStateLabel" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                      <Component id="ModShipStateDropDown" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabShipStateDropdown" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="ModShipZipCode" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Component id="ModShipZipCodeField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="ModifyTabShipZIPField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="ModShipPhoneNumberField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ModifyTabShipPhoneField" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ModShipPhoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnModSave" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                          <Component id="btnModCancel" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="ModifyTabSaveButton" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="ModifyTabCancelButton" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                   </Group>
@@ -797,10 +812,13 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnUpdLoad">
+            <Component class="javax.swing.JButton" name="ModifyTabLoadButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Load"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabLoadButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -820,9 +838,9 @@
                 <Property name="text" type="java.lang.String" value="Email Address *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="UpdEmailAddressField">
+            <Component class="javax.swing.JTextField" name="ModifyTabEmailField">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="UpdEmailAddressFieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabEmailFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ModBillCardNumberLabel">
@@ -840,22 +858,17 @@
                 <Property name="text" type="java.lang.String" value="Card Holder Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModBillCCNbrField">
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModBillCCNbrFieldFocusGained"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JFormattedTextField" name="ModBillAcctCardExpDate">
+            <Component class="javax.swing.JFormattedTextField" name="ModifyTabCardExpField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="mm/dd/yyyy" subtype="-1" type="1"/>
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModBillCCHolderField">
+            <Component class="javax.swing.JTextField" name="ModifyTabCardNameField">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModBillCCHolderFieldActionPerformed"/>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModBillCCHolderFieldFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCardNameFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabCardNameFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ModShipFirstNameLabel">
@@ -891,33 +904,33 @@
                 <Property name="text" type="java.lang.String" value="State *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModShpFirstNameField">
+            <Component class="javax.swing.JTextField" name="ModifyTabShipFNameField">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModShpFirstNameFieldActionPerformed"/>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModShpFirstNameFieldFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabShipFNameFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipFNameFieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModShipLastNameField">
+            <Component class="javax.swing.JTextField" name="ModifyTabShipLNameField">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModShipLastNameFieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipLNameFieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModShipAddress1Field">
+            <Component class="javax.swing.JTextField" name="ModifyTabShipAddress1Field">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModShipAddress1FieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipAddress1FieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModShipAddress2Field">
+            <Component class="javax.swing.JTextField" name="ModifyTabShipAddress2Field">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModShipAddress2FieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipAddress2FieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModShipCityField">
+            <Component class="javax.swing.JTextField" name="ModifyTabShipCityField">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModShipCityFieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipCityFieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="ModShipStateDropDown">
+            <Component class="javax.swing.JComboBox" name="ModifyTabShipStateDropdown">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="52">
@@ -977,7 +990,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModShipStateDropDownActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabShipStateDropdownActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ModShipZipCode">
@@ -985,15 +998,15 @@
                 <Property name="text" type="java.lang.String" value="Zip Code *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="ModShipZipCodeField">
+            <Component class="javax.swing.JFormattedTextField" name="ModifyTabShipZIPField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="#####" subtype="-1" type="5"/>
+                  <Format format="" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModShipZipCodeFieldActionPerformed"/>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModShipZipCodeFieldFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabShipZIPFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipZIPFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ModShipPhoneNumberLabel">
@@ -1004,14 +1017,14 @@
                 <Property name="text" type="java.lang.String" value="Phone Number"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="ModShipPhoneNumberField">
+            <Component class="javax.swing.JFormattedTextField" name="ModifyTabShipPhoneField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="(###)###-####" subtype="-1" type="5"/>
+                  <Format format="" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModShipPhoneNumberFieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipPhoneFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ModBillFirstNameLabel">
@@ -1047,7 +1060,7 @@
                 <Property name="text" type="java.lang.String" value="State *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="ModBillStateDropDown">
+            <Component class="javax.swing.JComboBox" name="ModifyTabBillStateDropdown">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="52">
@@ -1107,7 +1120,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModBillStateDropDownActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabBillStateDropdownActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ModBillZipCodeLabel">
@@ -1115,41 +1128,41 @@
                 <Property name="text" type="java.lang.String" value="Zip Code *"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="ModBillZipCodeField">
+            <Component class="javax.swing.JFormattedTextField" name="ModifyTabBillZIPField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="#####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModBillZipCodeFieldActionPerformed"/>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModBillZipCodeFieldFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabBillZIPFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillZIPFieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModBillFirstNameField">
+            <Component class="javax.swing.JTextField" name="ModifyTabBillFNameField">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModBillFirstNameFieldActionPerformed"/>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModBillFirstNameFieldFocusGained"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabBillFNameFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillFNameFieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModBillLastNameField">
+            <Component class="javax.swing.JTextField" name="ModifyTabBillLNameField">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModBillLastNameFieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillLNameFieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModBillAddress1Field">
+            <Component class="javax.swing.JTextField" name="ModifyTabBillAddress1Field">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModBillAddress1FieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillAddress1FieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModBillAddress2Field">
+            <Component class="javax.swing.JTextField" name="ModifyTabBillAddress2Field">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModBillAddress2FieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillAddress2FieldFocusGained"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModBillCityField">
+            <Component class="javax.swing.JTextField" name="ModifyTabBillCityField">
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModBillCityFieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillCityFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ModBillPhoneNumberLabel">
@@ -1160,14 +1173,14 @@
                 <Property name="text" type="java.lang.String" value="Phone Number"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="ModBillPhoneNumberField">
+            <Component class="javax.swing.JFormattedTextField" name="ModifyTabBillPhoneField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="(###)###-####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModBillPhoneNumberFieldFocusGained"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillPhoneFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ShippingInfoLabel">
@@ -1186,14 +1199,27 @@
                 <Property name="text" type="java.lang.String" value="Billing Information"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnModSave">
+            <Component class="javax.swing.JButton" name="ModifyTabSaveButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Save"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabSaveButtonActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnModCancel">
+            <Component class="javax.swing.JButton" name="ModifyTabCancelButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancel"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCancelButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="ModifyTabCardNumField">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                  <Format format="################" subtype="-1" type="5"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -1213,7 +1239,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="TestTabLoadCustomersButton" alignment="0" max="32767" attributes="0"/>
                           <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
                           <Component id="jButton5" alignment="0" max="32767" attributes="0"/>
                           <Component id="jButton3" alignment="0" max="32767" attributes="0"/>
@@ -1227,7 +1253,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="TestTabLoadCustomersButton" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton2" min="-2" pref="40" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1242,10 +1268,13 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="TestTabLoadCustomersButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Load Demo Customers"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TestTabLoadCustomersButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>

@@ -159,9 +159,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="LoginTabPasswordField">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField1"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="OlympicPride">
               <Properties>
@@ -330,14 +327,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="NewTabCreatePasswordField">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField2"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabCreatePasswordFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="NewTabConfirmPasswordField">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jPasswordField2"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -627,12 +621,12 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="ModifyTabCardNumField" pref="291" max="32767" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Component id="ModifyTabCardExpField" pref="101" max="32767" attributes="0"/>
                                                   <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="ModifyTabCardNameField" max="32767" attributes="0"/>
+                                              <Component id="ModifyTabCardNumField" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -864,11 +858,6 @@
                 <Property name="text" type="java.lang.String" value="Card Holder Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="ModifyTabCardNumField">
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabCardNumFieldFocusGained"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JFormattedTextField" name="ModifyTabCardExpField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
@@ -1012,7 +1001,7 @@
             <Component class="javax.swing.JFormattedTextField" name="ModifyTabShipZIPField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="#####" subtype="-1" type="5"/>
+                  <Format format="" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
@@ -1031,7 +1020,7 @@
             <Component class="javax.swing.JFormattedTextField" name="ModifyTabShipPhoneField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="(###)###-####" subtype="-1" type="5"/>
+                  <Format format="" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
@@ -1225,6 +1214,13 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCancelButtonActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="ModifyTabCardNumField">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
+                  <Format format="################" subtype="-1" type="5"/>
+                </Property>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

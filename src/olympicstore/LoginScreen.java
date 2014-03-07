@@ -12,7 +12,9 @@
  */
 package olympicstore;
 
+import static java.awt.image.ImageObserver.WIDTH;
 import java.util.TreeMap;
+import javax.swing.JOptionPane;
 
 public class LoginScreen extends javax.swing.JFrame {
 
@@ -80,7 +82,6 @@ public class LoginScreen extends javax.swing.JFrame {
       ModBillCardNumberLabel = new javax.swing.JLabel();
       ModBillCardExpDateLabel = new javax.swing.JLabel();
       ModBillCardHolderNameLabel = new javax.swing.JLabel();
-      ModifyTabCardNumField = new javax.swing.JTextField();
       ModifyTabCardExpField = new javax.swing.JFormattedTextField();
       ModifyTabCardNameField = new javax.swing.JTextField();
       ModShipFirstNameLabel = new javax.swing.JLabel();
@@ -119,6 +120,7 @@ public class LoginScreen extends javax.swing.JFrame {
       BillingInfoLabel = new javax.swing.JLabel();
       ModifyTabSaveButton = new javax.swing.JButton();
       ModifyTabCancelButton = new javax.swing.JButton();
+      ModifyTabCardNumField = new javax.swing.JFormattedTextField();
       Test = new javax.swing.JPanel();
       TestTabLoadCustomersButton = new javax.swing.JButton();
       jButton2 = new javax.swing.JButton();
@@ -156,8 +158,6 @@ public class LoginScreen extends javax.swing.JFrame {
             LoginTabCancelButtonActionPerformed(evt);
          }
       });
-
-      LoginTabPasswordField.setText("jPasswordField1");
 
       OlympicPride.setFont(new java.awt.Font("Gill Sans", 1, 48)); // NOI18N
       OlympicPride.setText("Olympic Pride");
@@ -235,9 +235,11 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ConfirmNewPasswordLabel.setText("Confirm New Password *");
 
-      NewTabCreatePasswordField.setText("jPasswordField2");
-
-      NewTabConfirmPasswordField.setText("jPasswordField2");
+      NewTabCreatePasswordField.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            NewTabCreatePasswordFieldActionPerformed(evt);
+         }
+      });
 
       jLabel1.setText("Security Question *");
 
@@ -464,12 +466,6 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ModBillCardHolderNameLabel.setText("Card Holder Name");
 
-      ModifyTabCardNumField.addFocusListener(new java.awt.event.FocusAdapter() {
-         public void focusGained(java.awt.event.FocusEvent evt) {
-            ModifyTabCardNumFieldFocusGained(evt);
-         }
-      });
-
       ModifyTabCardExpField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("mm/dd/yyyy"))));
 
       ModifyTabCardNameField.addActionListener(new java.awt.event.ActionListener() {
@@ -541,7 +537,7 @@ public class LoginScreen extends javax.swing.JFrame {
       ModShipZipCode.setText("Zip Code *");
 
       try {
-         ModifyTabShipZIPField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+         ModifyTabShipZIPField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
       } catch (java.text.ParseException ex) {
          ex.printStackTrace();
       }
@@ -560,7 +556,7 @@ public class LoginScreen extends javax.swing.JFrame {
       ModShipPhoneNumberLabel.setText("Phone Number");
 
       try {
-         ModifyTabShipPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)###-####")));
+         ModifyTabShipPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("")));
       } catch (java.text.ParseException ex) {
          ex.printStackTrace();
       }
@@ -677,6 +673,12 @@ public class LoginScreen extends javax.swing.JFrame {
          }
       });
 
+      try {
+         ModifyTabCardNumField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("################")));
+      } catch (java.text.ParseException ex) {
+         ex.printStackTrace();
+      }
+
       javax.swing.GroupLayout ModifyCustomerInfoLayout = new javax.swing.GroupLayout(ModifyCustomerInfo);
       ModifyCustomerInfo.setLayout(ModifyCustomerInfoLayout);
       ModifyCustomerInfoLayout.setHorizontalGroup(
@@ -735,11 +737,11 @@ public class LoginScreen extends javax.swing.JFrame {
                               .addComponent(ModBillCardNumberLabel))
                            .addGap(11, 11, 11)
                            .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                              .addComponent(ModifyTabCardNumField, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
                               .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                                  .addComponent(ModifyTabCardExpField, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
                                  .addGap(190, 190, 190))
-                              .addComponent(ModifyTabCardNameField)))
+                              .addComponent(ModifyTabCardNameField)
+                              .addComponent(ModifyTabCardNumField)))
                         .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                            .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                               .addComponent(ModBillFirstNameLabel)
@@ -1034,10 +1036,6 @@ public class LoginScreen extends javax.swing.JFrame {
       // TODO add your handling code here:
    }//GEN-LAST:event_ModifyTabCardNameFieldFocusGained
 
-   private void ModifyTabCardNumFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabCardNumFieldFocusGained
-      // TODO add your handling code here:
-   }//GEN-LAST:event_ModifyTabCardNumFieldFocusGained
-
    private void ModifyTabEmailFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabEmailFieldFocusGained
       // TODO add your handling code here:
    }//GEN-LAST:event_ModifyTabEmailFieldFocusGained
@@ -1055,7 +1053,70 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_LoginTabCancelButtonActionPerformed
 
    private void NewTabSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabSaveButtonActionPerformed
-      // TODO add your handling code here:
+      
+		//input/error handling
+		//reinitialize error handling variables first
+		errortext = "";
+		
+		//test each field to confirm it is not empty; adjust error handling variable if it is
+		if(NewTabAnswerField.getText().equals(""))
+		{
+			errortext = "Security answer" + errortext;
+			NewTabAnswerField.requestFocus();
+		} //end security answer if
+		
+		if(NewTabQuestionDropdown.getSelectedIndex() == 0)
+		{
+			errortext = "Security question\n" + errortext;
+			NewTabQuestionDropdown.requestFocus();
+		} //end security question if
+		
+		if(NewTabConfirmPasswordField.getText().equals(""))
+		{
+			errortext = "Confirm password\n" + errortext;
+			NewTabConfirmPasswordField.requestFocus();
+		} //end confirm password if
+		
+		if(NewTabCreatePasswordField.getText().equals(""))
+		{
+			errortext = "Create password\n" + errortext;
+			NewTabCreatePasswordField.requestFocus();
+		} //end create password if
+		
+		if(NewTabEmailField.getText().equals(""))
+		{
+			errortext = "Email address\n" + errortext;
+			NewTabEmailField.requestFocus();
+		} //end email if
+		
+		
+		//Error handling. If errortext variable is blank, then check to see if password fields match.
+		//If passwords match, create user object and insert into treemap. If passwords do not
+		//match, or if any fields are blank (and errortext has data), inform user.
+		if(errortext.equals(""))
+		{
+			if(NewTabCreatePasswordField.getText().equals(NewTabConfirmPasswordField.getText()))
+			{			
+				//create new customer using field data, and save it into the keymap
+				currentcust = new Customer(NewTabEmailField.getText(), NewTabCreatePasswordField.getText(), 
+				  NewTabQuestionDropdown.getSelectedIndex(), NewTabAnswerField.getText());
+
+				custmap.put(currentcust.getEmail(), currentcust);			
+				custmap.put(currentcust.getCustID(), currentcust);				
+			
+				JOptionPane.showMessageDialog(rootPane, "Your account has been created!", "Data saved", WIDTH);
+			} //end passwords-matching if
+			else
+			{
+				JOptionPane.showMessageDialog(rootPane, "Passwords do not match. Please enter\nmatching passwords.", "Password error", WIDTH);
+			} //end passwords-mismatching else
+		} //end all-fields-filled if
+		else
+		{
+			JOptionPane.showMessageDialog(rootPane, "Please enter all required fields to create an account.\nMissing fields are:\n" 
+						  + errortext, "Required fields missing", WIDTH);
+		} //end not-all-fields-filled else
+		
    }//GEN-LAST:event_NewTabSaveButtonActionPerformed
 
    private void NewTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabCancelButtonActionPerformed
@@ -1114,6 +1175,10 @@ public class LoginScreen extends javax.swing.JFrame {
       // TODO add your handling code here:
    }//GEN-LAST:event_ForgotTabDropdownActionPerformed
 
+   private void NewTabCreatePasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabCreatePasswordFieldActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_NewTabCreatePasswordFieldActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1148,6 +1213,8 @@ public class LoginScreen extends javax.swing.JFrame {
 	 
 	 // non-generated variables
 	 TreeMap custmap = new TreeMap();
+	 Customer currentcust;
+	 private String errortext;
 	 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JLabel BillingInfoLabel;
@@ -1198,7 +1265,7 @@ public class LoginScreen extends javax.swing.JFrame {
    private javax.swing.JButton ModifyTabCancelButton;
    private javax.swing.JFormattedTextField ModifyTabCardExpField;
    private javax.swing.JTextField ModifyTabCardNameField;
-   private javax.swing.JTextField ModifyTabCardNumField;
+   private javax.swing.JFormattedTextField ModifyTabCardNumField;
    private javax.swing.JTextField ModifyTabEmailField;
    private javax.swing.JButton ModifyTabLoadButton;
    private javax.swing.JButton ModifyTabSaveButton;

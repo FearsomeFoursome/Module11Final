@@ -18,9 +18,13 @@ import javax.swing.JOptionPane;
 
 public class LoginScreen extends javax.swing.JFrame {
 
-    /**
-     * Creates new form LoginScreen
-     */
+	// non-generated variables
+	// treemap for customer storage; currentcust to make object handling easier, and
+	// errortext for input error handling
+	 TreeMap custmap = new TreeMap();
+	 private Customer currentcust;
+	 private String errortext;
+	 
     public LoginScreen() {
         initComponents();
     }
@@ -1089,7 +1093,6 @@ public class LoginScreen extends javax.swing.JFrame {
 			NewTabEmailField.requestFocus();
 		} //end email if
 		
-		
 		//Error handling. If errortext variable is blank, then check to see if password fields match.
 		//If passwords match, create user object and insert into treemap. If passwords do not
 		//match, or if any fields are blank (and errortext has data), inform user.
@@ -1210,11 +1213,6 @@ public class LoginScreen extends javax.swing.JFrame {
             }
         });
 	 }
-	 
-	 // non-generated variables
-	 TreeMap custmap = new TreeMap();
-	 Customer currentcust;
-	 private String errortext;
 	 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JLabel BillingInfoLabel;

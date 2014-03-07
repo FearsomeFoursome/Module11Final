@@ -34,8 +34,7 @@ public class Customer {
 		SecurityAnswer = answer;
 		CustID = CustIDCounter;
 		CustIDCounter++;
-		FName = LName = CCExp = CCName = "";
-		CCNum = 0;
+		FName = LName = CCExp = CCName = CCNum = "";
 		custOrders = new ArrayList();
 	} // end constructor
 	

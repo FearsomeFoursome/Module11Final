@@ -354,9 +354,9 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="Select One:"/>
-                    <StringItem index="1" value="What is your mother maiden name"/>
-                    <StringItem index="2" value="What is your dog name"/>
-                    <StringItem index="3" value="What was your school name"/>
+                    <StringItem index="1" value="1. What is your mother&apos;s maiden name?"/>
+                    <StringItem index="2" value="2. What is your favorite pet&apos;s name?"/>
+                    <StringItem index="3" value="3. What was the name of your elementary school?"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -426,7 +426,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="479" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="414" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -489,13 +489,16 @@
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="4">
                     <StringItem index="0" value="Select One:"/>
-                    <StringItem index="1" value="What is your mother maiden name"/>
-                    <StringItem index="2" value="What is your dog name"/>
-                    <StringItem index="3" value="What was your school name"/>
+                    <StringItem index="1" value="1. What is your mother&apos;s maiden name?"/>
+                    <StringItem index="2" value="2. What is your favorite pet&apos;s name?"/>
+                    <StringItem index="3" value="3. What was the name of your elementary school?"/>
                   </StringArray>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ForgotTabDropdownActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ForgotTabAnswerField">
             </Component>
@@ -1273,6 +1276,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Load Demo Customers"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TestTabLoadCustomersButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>

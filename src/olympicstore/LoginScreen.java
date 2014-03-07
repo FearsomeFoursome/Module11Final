@@ -12,6 +12,7 @@
  */
 package olympicstore;
 
+import java.util.TreeMap;
 
 public class LoginScreen extends javax.swing.JFrame {
 
@@ -242,7 +243,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
       jLabel3.setText("Security Answer *");
 
-      NewTabQuestionDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select One:", "What is your mother maiden name", "What is your dog name", "What was your school name" }));
+      NewTabQuestionDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select One:", "1. What is your mother's maiden name?", "2. What is your favorite pet's name?", "3. What was the name of your elementary school?" }));
 
       NewTabSaveButton.setText("Save");
       NewTabSaveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -341,8 +342,13 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ResetSecurityQuestionLabel.setText("Security Question *");
 
-      ForgotTabDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select One:", "What is your mother maiden name", "What is your dog name", "What was your school name" }));
+      ForgotTabDropdown.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select One:", "1. What is your mother's maiden name?", "2. What is your favorite pet's name?", "3. What was the name of your elementary school?" }));
       ForgotTabDropdown.setToolTipText("");
+      ForgotTabDropdown.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            ForgotTabDropdownActionPerformed(evt);
+         }
+      });
 
       ForgotTabOKButton.setText("OK");
       ForgotTabOKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -395,7 +401,7 @@ public class LoginScreen extends javax.swing.JFrame {
                            .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                               .addComponent(ForgotTabOKButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                               .addComponent(ForgotTabCancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)))))
-                  .addGap(0, 479, Short.MAX_VALUE))
+                  .addGap(0, 414, Short.MAX_VALUE))
                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addContainerGap())
       );
@@ -534,7 +540,11 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ModShipZipCode.setText("Zip Code *");
 
-      ModifyTabShipZIPField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+      try {
+         ModifyTabShipZIPField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+      } catch (java.text.ParseException ex) {
+         ex.printStackTrace();
+      }
       ModifyTabShipZIPField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             ModifyTabShipZIPFieldActionPerformed(evt);
@@ -549,7 +559,11 @@ public class LoginScreen extends javax.swing.JFrame {
       ModShipPhoneNumberLabel.setForeground(new java.awt.Color(51, 51, 255));
       ModShipPhoneNumberLabel.setText("Phone Number");
 
-      ModifyTabShipPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)###-####")));
+      try {
+         ModifyTabShipPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)###-####")));
+      } catch (java.text.ParseException ex) {
+         ex.printStackTrace();
+      }
       ModifyTabShipPhoneField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
             ModifyTabShipPhoneFieldFocusGained(evt);
@@ -578,7 +592,11 @@ public class LoginScreen extends javax.swing.JFrame {
 
       ModBillZipCodeLabel.setText("Zip Code *");
 
-      ModifyTabBillZIPField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+      try {
+         ModifyTabBillZIPField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
+      } catch (java.text.ParseException ex) {
+         ex.printStackTrace();
+      }
       ModifyTabBillZIPField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             ModifyTabBillZIPFieldActionPerformed(evt);
@@ -628,7 +646,11 @@ public class LoginScreen extends javax.swing.JFrame {
       ModBillPhoneNumberLabel.setForeground(new java.awt.Color(51, 51, 255));
       ModBillPhoneNumberLabel.setText("Phone Number");
 
-      ModifyTabBillPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)###-####")));
+      try {
+         ModifyTabBillPhoneField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(###)###-####")));
+      } catch (java.text.ParseException ex) {
+         ex.printStackTrace();
+      }
       ModifyTabBillPhoneField.addFocusListener(new java.awt.event.FocusAdapter() {
          public void focusGained(java.awt.event.FocusEvent evt) {
             ModifyTabBillPhoneFieldFocusGained(evt);
@@ -861,6 +883,11 @@ public class LoginScreen extends javax.swing.JFrame {
       tabCstLogin.addTab("Modify Customer Info", ModifyCustomerInfo);
 
       TestTabLoadCustomersButton.setText("Load Demo Customers");
+      TestTabLoadCustomersButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            TestTabLoadCustomersButtonActionPerformed(evt);
+         }
+      });
 
       jButton2.setText("Place Demo Orders");
 
@@ -1055,6 +1082,38 @@ public class LoginScreen extends javax.swing.JFrame {
       // TODO add your handling code here:
    }//GEN-LAST:event_ModifyTabCancelButtonActionPerformed
 
+   private void TestTabLoadCustomersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestTabLoadCustomersButtonActionPerformed
+
+		// initialize demo customers
+		Customer democust1 = new Customer("joe@gmail.com", "password", 2, "Fido");
+		Customer democust2 = new Customer("sally@gmail.com", "sallyrules", 3, "Central");
+		
+		// populate Joe with some data, as if he has placed orders before
+		democust1.setBillAddress("123 Main St", "", "Springfield", "Illinois", 12345, "(610)867-5309");
+		democust1.setShipAddress("123 Main St", "", "Springfield", "Illinois", 12345, "(610)867-5309");
+		democust1.setCCName("Joseph F Smith");
+		democust1.setFName("Joe");
+		democust1.setLName("Smith");
+		democust1.setCCnum("1234567890987654");
+		democust1.setCCExp("03/14/15");
+		democust1.addOrder(42);
+		democust1.addOrder(320);
+		democust1.addOrder(786);
+		
+		// Sally just created an account; no additional data for her
+		
+		// store demo customers in treemap, keyed on email and ID
+		custmap.put(democust1.getEmail(), democust1);
+		custmap.put(democust1.getCustID(), democust1);
+		custmap.put(democust2.getEmail(), democust2);
+		custmap.put(democust2.getCustID(), democust2);
+		
+   }//GEN-LAST:event_TestTabLoadCustomersButtonActionPerformed
+
+   private void ForgotTabDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabDropdownActionPerformed
+      // TODO add your handling code here:
+   }//GEN-LAST:event_ForgotTabDropdownActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1085,7 +1144,11 @@ public class LoginScreen extends javax.swing.JFrame {
                 new LoginScreen().setVisible(true);
             }
         });
-    }
+	 }
+	 
+	 // non-generated variables
+	 TreeMap custmap = new TreeMap();
+	 
    // Variables declaration - do not modify//GEN-BEGIN:variables
    private javax.swing.JLabel BillingInfoLabel;
    private javax.swing.JLabel ConfirmNewPasswordLabel;

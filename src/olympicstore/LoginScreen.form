@@ -548,47 +548,42 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel9" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="ModShipFirstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="ModShipLastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="ModShipCityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="ModShipAddress1Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="ModShipAddress2Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="ModShipAddress2Field" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="ModShipAddress1Field" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="ModShpFirstNameField" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="ModShipLastNameField" alignment="0" max="32767" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="ModShipStateDropDown" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="ModShipZipCode" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                      <Component id="ModShipZipCodeField" min="-2" pref="75" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="ModShipCityField" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="ModShipStateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="ModShipPhoneNumberLabel" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="ModShipPhoneNumberField" min="-2" pref="110" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="EmailAddress1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="UpdEmailAddressField" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="btnUpdLoad" min="-2" pref="76" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="ModShipFirstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ModShipLastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ModShipCityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ModShipAddress1Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ModShipAddress2Label" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="ModShipAddress2Field" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="ModShipAddress1Field" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="ModShpFirstNameField" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="ModShipLastNameField" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="ModShipStateDropDown" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="ModShipZipCode" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="ModShipZipCodeField" min="-2" pref="75" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="ModShipCityField" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="ModShipStateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="ModShipPhoneNumberLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="ModShipPhoneNumberField" min="-2" pref="110" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="EmailAddress1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="UpdEmailAddressField" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btnUpdLoad" min="-2" pref="76" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -612,13 +607,11 @@
                                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Component id="ModBillCCNbrField" pref="291" max="32767" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Group type="102" attributes="0">
-                                                      <Component id="ModBillAcctCardExpDate" pref="101" max="32767" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="ModBillCCHolderField" max="32767" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="ModBillAcctCardExpDate" pref="101" max="32767" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
                                               </Group>
+                                              <Component id="ModBillCCHolderField" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">

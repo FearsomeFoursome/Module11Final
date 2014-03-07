@@ -17,7 +17,7 @@ public class Customer {
 	String SecurityAnswer;
 	Address BillAddress;
 	Address ShipAddress;
-	long CCNum;
+	String CCNum;
 	String CCExp;
 	String CCName;
 	long CustID;
@@ -87,12 +87,12 @@ public class Customer {
 		return LName;
 	} // end getLName
 	
-	void setCCnum(long ccnum)
+	void setCCnum(String ccnum)
 	{
 		CCNum = ccnum;
 	} // end setCCNum
 	
-	long getCCNum()
+	String getCCNum()
 	{
 		return CCNum;
 	} // end getCCNum

@@ -20,10 +20,10 @@ public class Customer {
 	String CCNum;
 	String CCExp;
 	String CCName;
-	long CustID;
+	String CustID;
 	ArrayList CustOrders;
 	
-	static long CustIDCounter = 1000;
+	static int CustIDCounter = 1000;
 	
 	// constructor - initializes variables being set on the create account screen
 	Customer(String email, String password, int question, String answer)
@@ -32,7 +32,7 @@ public class Customer {
 		Password = password;
 		SecurityQuestion = question;
 		SecurityAnswer = answer;
-		CustID = CustIDCounter;
+		CustID = Integer.toString(CustIDCounter);
 		CustIDCounter++;
 		FName = LName = CCExp = CCName = CCNum = "";
 		CustOrders = new ArrayList();
@@ -51,7 +51,7 @@ public class Customer {
 		return Password;
 	} // end getPassword
 	
-	long getCustID()
+	String getCustID()
 	{
 		return CustID;
 	} // end getCustID

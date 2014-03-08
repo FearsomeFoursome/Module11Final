@@ -97,12 +97,12 @@ public class Customer {
 		return CCName;
 	} // end getCCName
 	
-	void setBillAddress(String fname, String lname, String add1, String add2, String city, String state, int zip, String phone)
+	void setBillAddress(String fname, String lname, String add1, String add2, String city, String state, String zip, String phone)
 	{
 		BillAddress = new Address(fname, lname, add1, add2, city, state, zip, phone);
 	} // end setBillAddress
 	
-	void setShipAddress(String fname, String lname, String add1, String add2, String city, String state, int zip, String phone)
+	void setShipAddress(String fname, String lname, String add1, String add2, String city, String state, String zip, String phone)
 	{
 		ShipAddress = new Address(fname, lname, add1, add2, city, state, zip, phone);
 	} // end setShipAddress
@@ -138,7 +138,7 @@ public class Customer {
 		return BillAddress.getState();
 	} // end getBillState
 		
-	int getBillZIP()
+	String getBillZIP()
 	{
 		return BillAddress.getZIP();
 	} // end getBillZIP
@@ -178,7 +178,7 @@ public class Customer {
 		return ShipAddress.getState();
 	} // end getShipState
 		
-	int getShipZIP()
+	String getShipZIP()
 	{
 		return ShipAddress.getZIP();
 	} // end getShipZIP

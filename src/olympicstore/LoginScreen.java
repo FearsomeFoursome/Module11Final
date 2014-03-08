@@ -1286,8 +1286,8 @@ public class LoginScreen extends javax.swing.JFrame {
 			currentcust = (Customer) custmap.get(ModifyTabEmailField.getText());
 		
 			//pull data from customer and populate fields with it
-			ModifyTabShipFNameField.setText(currentcust.getFName());
-			ModifyTabShipLNameField.setText(currentcust.getLName());
+			ModifyTabShipFNameField.setText(currentcust.getShipFName());
+			ModifyTabShipLNameField.setText(currentcust.getShipLName());
 			ModifyTabShipAddress1Field.setText(currentcust.getShipAddress1());
 			ModifyTabShipAddress2Field.setText(currentcust.getShipAddress2());
 			ModifyTabShipCityField.setText(currentcust.getShipCity());
@@ -1299,8 +1299,8 @@ public class LoginScreen extends javax.swing.JFrame {
 			ModifyTabCardExpField.setText(currentcust.getCCExp());
 			ModifyTabCardNameField.setText(currentcust.getCCName());
 		
-			ModifyTabBillFNameField.setText(currentcust.getFName());
-			ModifyTabBillLNameField.setText(currentcust.getLName());
+			ModifyTabBillFNameField.setText(currentcust.getBillFName());
+			ModifyTabBillLNameField.setText(currentcust.getBillLName());
 			ModifyTabBillAddress1Field.setText(currentcust.getBillAddress1());
 			ModifyTabBillAddress2Field.setText(currentcust.getBillAddress2());
 			ModifyTabBillCityField.setText(currentcust.getBillCity());
@@ -1310,6 +1310,9 @@ public class LoginScreen extends javax.swing.JFrame {
 			
 			//confirm for user that all data is loaded, in case of a customer with no preloaded data
 			JOptionPane.showMessageDialog(rootPane, "Customer data successfully loaded!", "Data loaded", WIDTH);
+			
+			//lock the email field so it cannot be edited
+			ModifyTabEmailField.setEditable(false);
 		} //end load customer data
 		else
 		{
@@ -1320,11 +1323,60 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabLoadButtonActionPerformed
 
    private void ModifyTabSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabSaveButtonActionPerformed
-      // TODO add your handling code here:
+
+		//set customer matching the email address to currentcust for ease of manipulation		
+		currentcust = (Customer) custmap.get(ModifyTabEmailField.getText());
+		
+		//pull data from fields and store to customer
+		currentcust.setShipAddress(ModifyTabShipFNameField.getText(), ModifyTabShipLNameField.getText(),
+				  ModifyTabShipAddress1Field.getText(), ModifyTabShipAddress2Field.getText(), 
+				  ModifyTabShipCityField.getText(), (String) ModifyTabShipStateDropdown.getSelectedItem(),
+				  ModifyTabShipZIPField.getText(), ModifyTabShipPhoneField.getText());
+				
+		currentcust.setCCnum(ModifyTabCardNumField.getText());
+		currentcust.setCCExp(ModifyTabCardExpField.getText());
+		currentcust.setCCName(ModifyTabCardNameField.getText());
+		
+		currentcust.setBillAddress(ModifyTabBillFNameField.getText(), ModifyTabBillLNameField.getText(),
+				  ModifyTabBillAddress1Field.getText(), ModifyTabBillAddress2Field.getText(),
+				  ModifyTabBillCityField.getText(), (String) ModifyTabBillStateDropdown.getSelectedItem(),
+				  ModifyTabBillZIPField.getText(), ModifyTabBillPhoneField.getText());
+		
+		//re-add customer to map to confirm updates are saved to the key correctly
+		custmap.put(ModifyTabEmailField.getText(), currentcust);
+		
+		//confirm for user that all data was saved
+		JOptionPane.showMessageDialog(rootPane, "Customer data successfully modified!", "Data saved", WIDTH);
+		
+		//blank all fields and re-enable editing on the email field
+		 ModifyTabEmailField.setText("");
+		 ModifyTabEmailField.setEditable(true);
+       ModifyTabShipFNameField.setText("");
+       ModifyTabShipLNameField.setText("");
+       ModifyTabShipAddress1Field.setText("");
+       ModifyTabShipAddress2Field.setText("");
+       ModifyTabShipCityField.setText("");
+       ModifyTabShipStateDropdown.setSelectedIndex(0);
+       ModifyTabShipZIPField.setValue(null);
+       ModifyTabShipPhoneField.setValue(null);
+       ModifyTabCardNumField.setValue(null);
+       ModifyTabCardExpField.setText("");
+       ModifyTabCardNameField.setText("");
+       ModifyTabBillFNameField.setText("");
+       ModifyTabBillLNameField.setText("");
+       ModifyTabBillAddress1Field.setText("");
+       ModifyTabBillAddress2Field.setText("");
+       ModifyTabBillCityField.setText("");
+       ModifyTabBillStateDropdown.setSelectedIndex(0);
+       ModifyTabBillZIPField.setValue(null);
+       ModifyTabBillPhoneField.setValue(null);
+       ModifyTabEmailField.requestFocus();
+		
    }//GEN-LAST:event_ModifyTabSaveButtonActionPerformed
 
    private void ModifyTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCancelButtonActionPerformed
        ModifyTabEmailField.setText("");
+		 ModifyTabEmailField.setEditable(true);
        ModifyTabShipFNameField.setText("");
        ModifyTabShipLNameField.setText("");
        ModifyTabShipAddress1Field.setText("");
@@ -1354,11 +1406,9 @@ public class LoginScreen extends javax.swing.JFrame {
 		Customer democust2 = new Customer("sally@gmail.com", "sallyrules", 3, "Central");
 		
 		// populate Joe with some data, as if he has placed orders before
-		democust1.setBillAddress("123 Main St", "", "Springfield", "Illinois", 12345, "(610)867-5309");
-		democust1.setShipAddress("123 Main St", "", "Springfield", "Illinois", 12345, "(610)867-5309");
+		democust1.setBillAddress("Joe", "Smith", "123 Main St", "", "Springfield", "Illinois", "12345", "(610)867-5309");
+		democust1.setShipAddress("Joe", "Smith", "123 Main St", "", "Springfield", "Illinois", "12345", "(610)867-5309");
 		democust1.setCCName("Joseph F Smith");
-		democust1.setFName("Joe");
-		democust1.setLName("Smith");
 		democust1.setCCnum("1234567890987654");
 		democust1.setCCExp("03/14/15");
 		democust1.addOrder(42);

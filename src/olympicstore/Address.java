@@ -10,7 +10,7 @@ public class Address {
 	private String Address2;
 	private String City;
 	private String State;
-	private int ZIP;
+	private String ZIP;
 	private String Phone;
 	
 	// constructors
@@ -18,10 +18,10 @@ public class Address {
 	{
 		FName = LName = Address1 = Address2 = City = Phone = "";
 		State = "Select";
-		ZIP = 0;
+		ZIP = "";
 	} // end no-arg constructor
 
-	Address(String fname, String lname, String add1, String add2, String city, String state, int zip, String phone)
+	Address(String fname, String lname, String add1, String add2, String city, String state, String zip, String phone)
 	{
 		FName = fname;
 		LName = lname;
@@ -94,12 +94,12 @@ public class Address {
 		return State;
 	} // end getState
 	
-	void setZIP(int zip)
+	void setZIP(String zip)
 	{
 		ZIP = zip;
 	} // end setZIP
 	
-	int getZIP()
+	String getZIP()
 	{
 		return ZIP;
 	} // end getZIP

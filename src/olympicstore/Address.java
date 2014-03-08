@@ -4,17 +4,18 @@ package olympicstore;
 public class Address {
 	
 	// variables
-	String Address1;
-	String Address2;
-	String City;
-	String State;
-	int ZIP;
-	String Phone;
+	private String Address1;
+	private String Address2;
+	private String City;
+	private String State;
+	private int ZIP;
+	private String Phone;
 	
 	// constructors
 	Address()
 	{
-		Address1 = Address2 = City = State = Phone = "";
+		Address1 = Address2 = City = Phone = "";
+		State = "Select";
 		ZIP = 0;
 	} // end no-arg constructor
 

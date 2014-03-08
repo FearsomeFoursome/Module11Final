@@ -9,21 +9,21 @@ import java.util.ArrayList;
 public class Customer {
 	
 	// variables
-	String FName;
-	String LName;
-	String Email;
-	String Password;
-	int SecurityQuestion;
-	String SecurityAnswer;
-	Address BillAddress;
-	Address ShipAddress;
-	String CCNum;
-	String CCExp;
-	String CCName;
-	String CustID;
-	ArrayList CustOrders;
+	private String FName;
+	private String LName;
+	private String Email;
+	private String Password;
+	private int SecurityQuestion;
+	private String SecurityAnswer;
+	private Address BillAddress;
+	private Address ShipAddress;
+	private String CCNum;
+	private String CCExp;
+	private String CCName;
+	private String CustID;
+	private ArrayList CustOrders;
 	
-	static int CustIDCounter = 1000;
+	private static int CustIDCounter = 1000;
 	
 	// constructor - initializes variables being set on the create account screen
 	Customer(String email, String password, int question, String answer)
@@ -36,6 +36,9 @@ public class Customer {
 		CustIDCounter++;
 		FName = LName = CCExp = CCName = CCNum = "";
 		CustOrders = new ArrayList();
+		BillAddress = new Address();
+		ShipAddress = new Address();
+		
 	} // end constructor
 	
 	//gets and sets
@@ -167,7 +170,7 @@ public class Customer {
 		return ShipAddress.getAddress2();
 	} // end getShipAddress2
 	
-	String getShiplCity()
+	String getShipCity()
 	{
 		return ShipAddress.getCity();
 	} // end getShipCity

@@ -1174,7 +1174,30 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabCardNameFieldActionPerformed
 
    private void LoginTabOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabOKButtonActionPerformed
-      // TODO add your handling code here:
+
+		//first find out if a customer exists with that email
+		if(custmap.containsKey(LoginTabEmailField.getText()))
+		{
+			currentcust = (Customer) custmap.get(LoginTabEmailField.getText());
+			if(currentcust.getPassword().equals(LoginTabPasswordField.getText()))
+			{
+				JOptionPane.showMessageDialog(rootPane, "You have been successfully logged in!", "Success", WIDTH);
+				
+				//clear fields
+				LoginTabEmailField.setText(""); 
+				LoginTabPasswordField.setText(""); 
+				LoginTabEmailField.requestFocus(); 
+			} //end passwords-match if
+			else
+			{
+				JOptionPane.showMessageDialog(rootPane, "Password error; please retry", "Error", WIDTH);
+			} //end passwords-do-not-match else
+		} //end is-there-a-customer-if
+		else
+		{
+			JOptionPane.showMessageDialog(rootPane, "No customer with that email address found.\nCheck the spelling and try again.", "Error", WIDTH);
+		} //end not-a-customer-else
+		
    }//GEN-LAST:event_LoginTabOKButtonActionPerformed
 
    private void LoginTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabCancelButtonActionPerformed
@@ -1268,7 +1291,34 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_NewTabCancelButtonActionPerformed
 
    private void ForgotTabOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabOKButtonActionPerformed
-      // TODO add your handling code here:
+
+		//first find out if a customer exists with that email
+		if(custmap.containsKey(ForgotTabEmailField.getText()))
+		{
+			currentcust = (Customer) custmap.get(ForgotTabEmailField.getText());
+			
+			//compare both the security answer and the question on file to what is entered on screen
+			if(currentcust.getSecurityAnswer().equals(ForgotTabAnswerField.getText()) && 
+					  currentcust.getSecurityQuestion() == ForgotTabDropdown.getSelectedIndex())
+			{
+				JOptionPane.showMessageDialog(rootPane, "An email has been sent with recovery directions!", "Success", WIDTH);
+				
+				//clear fields
+				ForgotTabEmailField.setText("");        
+				ForgotTabAnswerField.setText("");        
+				ForgotTabDropdown.setSelectedIndex(0);        
+				ForgotTabEmailField.requestFocus();
+
+			} //end passwords-match if
+			else
+			{
+				JOptionPane.showMessageDialog(rootPane, "Security question or answer does not match.", "Error", WIDTH);
+			} //end passwords-do-not-match else
+		} //end is-there-a-customer-if
+		else
+		{
+			JOptionPane.showMessageDialog(rootPane, "No customer with that email address found.\nCheck the spelling and try again.", "Error", WIDTH);
+		} //end not-a-customer-else
    }//GEN-LAST:event_ForgotTabOKButtonActionPerformed
 
    private void ForgotTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabCancelButtonActionPerformed

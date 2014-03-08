@@ -4,6 +4,8 @@ package olympicstore;
 public class Address {
 	
 	// variables
+	private String FName;
+	private String LName;
 	private String Address1;
 	private String Address2;
 	private String City;
@@ -14,13 +16,15 @@ public class Address {
 	// constructors
 	Address()
 	{
-		Address1 = Address2 = City = Phone = "";
+		FName = LName = Address1 = Address2 = City = Phone = "";
 		State = "Select";
 		ZIP = 0;
 	} // end no-arg constructor
 
-	Address(String add1, String add2, String city, String state, int zip, String phone)
+	Address(String fname, String lname, String add1, String add2, String city, String state, int zip, String phone)
 	{
+		FName = fname;
+		LName = lname;
 		Address1 = add1;
 		Address2 = add2;
 		City = city;
@@ -30,6 +34,26 @@ public class Address {
 	} // end all-args constructor
 	
 	// gets and sets
+	void setFName(String fname)
+	{
+		FName = fname;
+	} // end setFName
+	
+	String getFName()
+	{
+		return FName;
+	} // end getFName
+	
+	void setLName(String lname)
+	{
+		LName = lname;
+	} // end setLName
+	
+	String getLName()
+	{
+		return LName;
+	} // end getLName
+	
 	void setAddress1(String add1)
 	{
 		Address1 = add1;

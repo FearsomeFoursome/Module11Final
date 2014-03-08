@@ -9,21 +9,19 @@ import java.util.ArrayList;
 public class Customer {
 	
 	// variables
-	String FName;
-	String LName;
-	String Email;
-	String Password;
-	int SecurityQuestion;
-	String SecurityAnswer;
-	Address BillAddress;
-	Address ShipAddress;
-	String CCNum;
-	String CCExp;
-	String CCName;
-	long CustID;
-	ArrayList CustOrders;
+	private String Email;
+	private String Password;
+	private int SecurityQuestion;
+	private String SecurityAnswer;
+	private Address BillAddress;
+	private Address ShipAddress;
+	private String CCNum;
+	private String CCExp;
+	private String CCName;
+	private String CustID;
+	private ArrayList CustOrders;
 	
-	static long CustIDCounter = 1000;
+	private static int CustIDCounter = 1000;
 	
 	// constructor - initializes variables being set on the create account screen
 	Customer(String email, String password, int question, String answer)
@@ -32,10 +30,13 @@ public class Customer {
 		Password = password;
 		SecurityQuestion = question;
 		SecurityAnswer = answer;
-		CustID = CustIDCounter;
+		CustID = Integer.toString(CustIDCounter);
 		CustIDCounter++;
-		FName = LName = CCExp = CCName = CCNum = "";
+		CCExp = CCName = CCNum = "";
 		CustOrders = new ArrayList();
+		BillAddress = new Address();
+		ShipAddress = new Address();
+		
 	} // end constructor
 	
 	//gets and sets
@@ -51,7 +52,7 @@ public class Customer {
 		return Password;
 	} // end getPassword
 	
-	long getCustID()
+	String getCustID()
 	{
 		return CustID;
 	} // end getCustID
@@ -65,26 +66,6 @@ public class Customer {
 	{
 		return SecurityAnswer;
 	} // end getSecurityAnswer
-	
-	void setFName(String fname)
-	{
-		FName = fname;
-	} // end setFName
-	
-	String getFName()
-	{
-		return FName;
-	} // end getFName
-	
-	void setLName(String lname)
-	{
-		LName = lname;
-	} // end setLName
-	
-	String getLName()
-	{
-		return LName;
-	} // end getLName
 	
 	void setCCnum(String ccnum)
 	{
@@ -116,17 +97,27 @@ public class Customer {
 		return CCName;
 	} // end getCCName
 	
-	void setBillAddress(String add1, String add2, String city, String state, int zip, String phone)
+	void setBillAddress(String fname, String lname, String add1, String add2, String city, String state, String zip, String phone)
 	{
-		BillAddress = new Address(add1, add2, city, state, zip, phone);
+		BillAddress = new Address(fname, lname, add1, add2, city, state, zip, phone);
 	} // end setBillAddress
 	
-	void setShipAddress(String add1, String add2, String city, String state, int zip, String phone)
+	void setShipAddress(String fname, String lname, String add1, String add2, String city, String state, String zip, String phone)
 	{
-		ShipAddress = new Address(add1, add2, city, state, zip, phone);
+		ShipAddress = new Address(fname, lname, add1, add2, city, state, zip, phone);
 	} // end setShipAddress
 
 	//gets for all pieces of address data
+	String getBillFName()
+	{
+		return BillAddress.getFName();
+	} // end getBillFName
+	
+	String getBillLName()
+	{
+		return BillAddress.getLName();
+	} // end getBillLName
+	
 	String getBillAddress1()
 	{
 		return BillAddress.getAddress1();
@@ -147,7 +138,7 @@ public class Customer {
 		return BillAddress.getState();
 	} // end getBillState
 		
-	int getBillZIP()
+	String getBillZIP()
 	{
 		return BillAddress.getZIP();
 	} // end getBillZIP
@@ -156,6 +147,16 @@ public class Customer {
 	{
 		return BillAddress.getPhone();
 	} // end getBillPhone
+	
+	String getShipFName()
+	{
+		return ShipAddress.getFName();
+	} // end getShipFName
+	
+	String getShipLName()
+	{
+		return ShipAddress.getLName();
+	} // end getShipLName
 	
 	String getShipAddress1()
 	{
@@ -167,7 +168,7 @@ public class Customer {
 		return ShipAddress.getAddress2();
 	} // end getShipAddress2
 	
-	String getShiplCity()
+	String getShipCity()
 	{
 		return ShipAddress.getCity();
 	} // end getShipCity
@@ -177,7 +178,7 @@ public class Customer {
 		return ShipAddress.getState();
 	} // end getShipState
 		
-	int getShipZIP()
+	String getShipZIP()
 	{
 		return ShipAddress.getZIP();
 	} // end getShipZIP

@@ -55,6 +55,10 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="tabCstLogin">
+      <Events>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="tabCstLoginStateChanged"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tabCstLoginFocusGained"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -141,6 +145,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="LoginTabEmailField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginTabEmailFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="LoginTabOKButton">
               <Properties>
@@ -159,6 +166,9 @@
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="LoginTabPasswordField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginTabPasswordFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="OlympicPride">
               <Properties>
@@ -183,8 +193,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="New Customers">
-                <Property name="tabTitle" type="java.lang.String" value="New Customers"/>
+              <JTabbedPaneConstraints tabName="New Customer">
+                <Property name="tabTitle" type="java.lang.String" value="New Customer"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -305,6 +315,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="NewTabEmailField">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabEmailFieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NewTabEmailFieldFocusGained"/>
               </Events>
             </Component>
@@ -332,6 +343,9 @@
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="NewTabConfirmPasswordField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabConfirmPasswordFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -356,6 +370,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="NewTabAnswerField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabAnswerFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="NewTabSaveButton">
               <Properties>
@@ -495,8 +512,14 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ForgotTabAnswerField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ForgotTabAnswerFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ForgotTabEmailField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ForgotTabEmailFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ForgotTabOKButton">
               <Properties>
@@ -623,7 +646,9 @@
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                               <Group type="102" attributes="0">
                                                   <Component id="ModifyTabCardExpField" pref="101" max="32767" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                  <Component id="jLabel6" min="-2" pref="91" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="ModifyTabCardNameField" max="32767" attributes="0"/>
                                               <Component id="ModifyTabCardNumField" alignment="0" max="32767" attributes="0"/>
@@ -676,9 +701,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel9" min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="OlympicPride5" min="-2" pref="52" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -687,11 +712,10 @@
                                   <Component id="ModifyTabLoadButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="ShippingInfoLabel" pref="22" max="32767" attributes="0"/>
+                              <Component id="ShippingInfoLabel" pref="34" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="BillingInfoLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -702,6 +726,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ModBillCardExpDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ModifyTabCardExpField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -833,15 +858,16 @@
                 <Property name="text" type="java.lang.String" value="Olympic Pride"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JTextField" name="ModifyTabEmailField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabEmailFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabEmailFieldFocusGained"/>
+              </Events>
+            </Component>
             <Component class="javax.swing.JLabel" name="EmailAddress1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Email Address *"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="ModifyTabEmailField">
-              <Events>
-                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabEmailFieldFocusGained"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ModBillCardNumberLabel">
               <Properties>
@@ -864,6 +890,9 @@
                   <Format format="mm/dd/yyyy" subtype="-1" type="1"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCardExpFieldActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabCardNameField">
               <Events>
@@ -912,21 +941,25 @@
             </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabShipLNameField">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabShipLNameFieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipLNameFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabShipAddress1Field">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabShipAddress1FieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipAddress1FieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabShipAddress2Field">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabShipAddress2FieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipAddress2FieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabShipCityField">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabShipCityFieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipCityFieldFocusGained"/>
               </Events>
             </Component>
@@ -1024,6 +1057,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabShipPhoneFieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabShipPhoneFieldFocusGained"/>
               </Events>
             </Component>
@@ -1147,21 +1181,25 @@
             </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabBillLNameField">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabBillLNameFieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillLNameFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabBillAddress1Field">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabBillAddress1FieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillAddress1FieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabBillAddress2Field">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabBillAddress2FieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillAddress2FieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabBillCityField">
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabBillCityFieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillCityFieldFocusGained"/>
               </Events>
             </Component>
@@ -1180,6 +1218,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabBillPhoneFieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabBillPhoneFieldFocusGained"/>
               </Events>
             </Component>
@@ -1220,6 +1259,14 @@
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                   <Format format="################" subtype="-1" type="5"/>
                 </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCardNumFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="mm/dd/yyyy"/>
               </Properties>
             </Component>
           </SubComponents>

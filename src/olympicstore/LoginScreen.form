@@ -314,6 +314,11 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="NewTabEmailField">
+              <Properties>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="NewTabCreatePasswordField"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabEmailFieldActionPerformed"/>
                 <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NewTabEmailFieldFocusGained"/>
@@ -586,42 +591,49 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel9" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ModShipFirstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ModShipLastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ModShipCityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ModShipAddress1Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ModShipAddress2Label" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="ModifyTabShipAddress2Field" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ModifyTabShipAddress1Field" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ModifyTabShipFNameField" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="ModifyTabShipLNameField" alignment="0" max="32767" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="ModifyTabShipStateDropdown" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="ModShipZipCode" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="ModifyTabShipZIPField" min="-2" pref="75" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="ModifyTabShipCityField" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="ModShipStateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="ModShipPhoneNumberLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="ModifyTabShipPhoneField" min="-2" pref="110" max="-2" attributes="0"/>
-                                  </Group>
                                   <Group type="102" attributes="0">
-                                      <Component id="EmailAddress1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="ModifyTabEmailField" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="ModifyTabLoadButton" min="-2" pref="76" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="ModShipFirstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ModShipLastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ModShipCityLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ModShipAddress1Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ModShipAddress2Label" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="ModifyTabShipAddress2Field" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="ModifyTabShipAddress1Field" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="ModifyTabShipFNameField" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="ModifyTabShipLNameField" alignment="0" max="32767" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="ModifyTabShipStateDropdown" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="ModShipZipCode" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                      <Component id="ModifyTabShipZIPField" min="-2" pref="75" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="ModifyTabShipCityField" alignment="0" min="-2" pref="315" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="ModShipStateLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="ModShipPhoneNumberLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="ModifyTabShipPhoneField" min="-2" pref="110" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="EmailAddress1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="ModifyTabEmailField" min="-2" pref="200" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Component id="ModifyTabLoadButton" min="-2" pref="76" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                                              <Component id="BillingInfoLabel" min="-2" pref="144" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -644,14 +656,13 @@
                                           </Group>
                                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="ModifyTabCardExpField" pref="101" max="32767" attributes="0"/>
+                                              <Component id="ModifyTabCardNameField" max="32767" attributes="0"/>
+                                              <Component id="ModifyTabCardNumField" alignment="0" pref="291" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="ModifyTabCardExpField" min="-2" pref="120" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                                   <Component id="jLabel6" min="-2" pref="91" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="ModifyTabCardNameField" max="32767" attributes="0"/>
-                                              <Component id="ModifyTabCardNumField" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
@@ -684,7 +695,6 @@
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Component id="BillingInfoLabel" alignment="0" min="-2" pref="144" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
@@ -717,7 +727,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="BillingInfoLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ModBillCardNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="ModifyTabCardNumField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -725,8 +735,8 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="ModBillCardExpDateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel6" alignment="3" max="32767" attributes="0"/>
                                   <Component id="ModifyTabCardExpField" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -884,16 +894,6 @@
                 <Property name="text" type="java.lang.String" value="Card Holder Name"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="ModifyTabCardExpField">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format format="mm/dd/yyyy" subtype="-1" type="1"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCardExpFieldActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="ModifyTabCardNameField">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCardNameFieldActionPerformed"/>
@@ -1034,7 +1034,7 @@
             <Component class="javax.swing.JFormattedTextField" name="ModifyTabShipZIPField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="" subtype="-1" type="5"/>
+                  <Format format="#####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
@@ -1053,7 +1053,7 @@
             <Component class="javax.swing.JFormattedTextField" name="ModifyTabShipPhoneField">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-                  <Format format="" subtype="-1" type="5"/>
+                  <Format format="(###)###-####" subtype="-1" type="5"/>
                 </Property>
               </Properties>
               <Events>
@@ -1266,8 +1266,13 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
-                <Property name="text" type="java.lang.String" value="mm/dd/yyyy"/>
+                <Property name="text" type="java.lang.String" value="MM/YY"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="ModifyTabCardExpField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCardExpFieldActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

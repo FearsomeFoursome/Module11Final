@@ -1769,6 +1769,15 @@ public class LoginScreen extends javax.swing.JFrame {
         demoOrd1.setProductIDs(555555);
         demoOrd1.setProductIDs(666666);
         demoOrd1.setProductIDs(777777);
+        demoOrd2.setProductIDs(222222);
+        demoOrd2.setProductIDs(333333);
+        demoOrd2.setProductIDs(444444);
+        
+        currentcust = (Customer) custmap.get("joe@gmail.com");
+        ordermap.put(currentcust.getCustID(), demoOrd1);
+        ordermap.put(demoOrd1.getOrderID(), demoOrd1);
+        
+        JOptionPane.showMessageDialog(rootPane, "Test orders loaded.", "Successful", WIDTH);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     public static void main(String args[]) {

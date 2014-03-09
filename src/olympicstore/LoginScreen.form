@@ -150,6 +150,7 @@
             <Component class="javax.swing.JTextField" name="LoginTabEmailField">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginTabEmailFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="LoginTabEmailFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="LoginTabOKButton">
@@ -171,6 +172,7 @@
             <Component class="javax.swing.JPasswordField" name="LoginTabPasswordField">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LoginTabPasswordFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="LoginTabPasswordFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="OlympicPride">
@@ -357,11 +359,13 @@
             <Component class="javax.swing.JPasswordField" name="NewTabCreatePasswordField">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabCreatePasswordFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NewTabCreatePasswordFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="NewTabConfirmPasswordField">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabConfirmPasswordFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NewTabConfirmPasswordFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
@@ -389,6 +393,7 @@
             <Component class="javax.swing.JTextField" name="NewTabAnswerField">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NewTabAnswerFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="NewTabAnswerFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="NewTabSaveButton">
@@ -529,11 +534,13 @@
             <Component class="javax.swing.JTextField" name="ForgotTabAnswerField">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ForgotTabAnswerFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ForgotTabAnswerFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="ForgotTabEmailField">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ForgotTabEmailFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ForgotTabEmailFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ForgotTabOKButton">
@@ -1281,6 +1288,7 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCardNumFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabCardNumFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
@@ -1291,6 +1299,7 @@
             <Component class="javax.swing.JTextField" name="ModifyTabCardExpField">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ModifyTabCardExpFieldActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ModifyTabCardExpFieldFocusGained"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ReqFieldInstruct3">

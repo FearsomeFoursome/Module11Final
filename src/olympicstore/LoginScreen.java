@@ -1763,8 +1763,8 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabCardExpFieldActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Order demoOrd1 = new Order(1000, "03/12/2014");
-        Order demoOrd2 = new Order(1001, "03/12/2014");
+        Order demoOrd1 = new Order("1000", "03/12/2014");
+        Order demoOrd2 = new Order("1001", "03/12/2014");
         
         demoOrd1.setProductIDs(555555);
         demoOrd1.setProductIDs(666666);

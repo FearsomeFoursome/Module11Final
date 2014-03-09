@@ -22,6 +22,7 @@ public class LoginScreen extends javax.swing.JFrame {
 	// treemap for customer storage; currentcust to make object handling easier, and
 	// errortext for input error handling
 	 TreeMap custmap = new TreeMap();
+         TreeMap ordermap = new TreeMap();
 	 private Customer currentcust;
 	 private String errortext;
 	 
@@ -133,7 +134,10 @@ public class LoginScreen extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        orderDisplay = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        output = new javax.swing.JTextArea();
+        demoOutput = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1083,12 +1087,17 @@ public class LoginScreen extends javax.swing.JFrame {
         });
 
         jButton2.setText("Place Demo Orders");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Test_2");
 
         jButton4.setText("Test_3");
 
-        jButton5.setText("Test_1");
+        orderDisplay.setText("Display Orders");
 
         javax.swing.GroupLayout TestLayout = new javax.swing.GroupLayout(Test);
         Test.setLayout(TestLayout);
@@ -1118,6 +1127,48 @@ public class LoginScreen extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(242, Short.MAX_VALUE))
+        );
+
+        demoOutput.setText("Demo Output");
+
+        javax.swing.GroupLayout TestLayout = new javax.swing.GroupLayout(Test);
+        Test.setLayout(TestLayout);
+        TestLayout.setHorizontalGroup(
+            TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TestLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(orderDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(290, 290, 290)
+                .addComponent(demoOutput)
+                .addContainerGap(326, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TestLayout.createSequentialGroup()
+                .addContainerGap(501, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+        );
+        TestLayout.setVerticalGroup(
+            TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TestLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(orderDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(demoOutput))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         tabCstLogin.addTab("Test", Test);
@@ -1841,6 +1892,24 @@ public class LoginScreen extends javax.swing.JFrame {
         ModifyTabCardExpField.selectAll();
     }//GEN-LAST:event_ModifyTabCardExpFieldFocusGained
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Order demoOrd1 = new Order("1000", "03/12/2014");
+        Order demoOrd2 = new Order("1001", "03/12/2014");
+        
+        demoOrd1.setProductIDs(555555);
+        demoOrd1.setProductIDs(666666);
+        demoOrd1.setProductIDs(777777);
+        demoOrd2.setProductIDs(222222);
+        demoOrd2.setProductIDs(333333);
+        demoOrd2.setProductIDs(444444);
+        
+        currentcust = (Customer) custmap.get("joe@gmail.com");
+        ordermap.put(currentcust.getCustID(), demoOrd1);
+        ordermap.put(demoOrd1.getOrderID(), demoOrd1);
+        
+        JOptionPane.showMessageDialog(rootPane, "Test orders loaded.", "Successful", WIDTH);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1957,10 +2026,10 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JLabel ShippingInfoLabel;
     private javax.swing.JPanel Test;
     private javax.swing.JButton TestTabLoadCustomersButton;
+    private javax.swing.JLabel demoOutput;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -1969,6 +2038,9 @@ public class LoginScreen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton orderDisplay;
+    private javax.swing.JTextArea output;
     private javax.swing.JTabbedPane tabCstLogin;
     // End of variables declaration//GEN-END:variables
 }

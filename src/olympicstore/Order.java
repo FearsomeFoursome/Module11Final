@@ -11,18 +11,18 @@ import java.util.ArrayList;
 public class Order {
     
     // instance variables
-    long custID;
-    long orderID;
-    int orderDate;
-    ArrayList productIDs;
+    private String custID;
+    private String orderID;
+    private String orderDate;
+    private ArrayList productIDs;
     
-    static long orderIDCounter = 7000;
+    private static long orderIDCounter = 7000;
  
     
     // constructor
-public Order(long customerID, int ordDate) {
+public Order(String customerID, String ordDate) {
     custID = customerID;
-    orderID = orderIDCounter;
+    orderID = Long.toString(orderIDCounter);
     orderIDCounter++;
     orderDate = ordDate;
     productIDs = new ArrayList();
@@ -30,17 +30,17 @@ public Order(long customerID, int ordDate) {
 
   // gets & set methods
 
-long getCustID() { return custID; }
+String getCustID() { return custID; }
 
-void setCustID(long cID) { custID = cID; }
+void setCustID(String cID) { custID = cID; }
 
-long getOrderID() { return orderID; }
+String getOrderID() { return orderID; }
 
-void setOrderID(long oID) { orderID = oID; }
+void setOrderID(String oID) { orderID = oID; }
 
-int getOrderDate() { return orderDate; }
+String getOrderDate() { return orderDate; }
 
-void setOrderDate(int oDate) { orderDate = oDate; }
+void setOrderDate(String oDate) { orderDate = oDate; }
 
 void setProductIDs(long prodID) { productIDs.add(prodID); }
 

@@ -194,9 +194,18 @@ public class Customer {
 		CustOrders.add(orderid);
 	}
 	
-	Object getOrders()
+	String getOrders()
 	{
-		return CustOrders.toArray();
+		String orders = "";
+		//loop through the array and convert the values to a string
+		for(int z = 0; z < CustOrders.size(); z++)
+		{
+			orders = orders + (long) CustOrders.get(z);
+			//add a comma if it isn't the last time through the loop
+			if (z < (CustOrders.size() - 1))
+				orders = orders + ", ";
+		}
+		return orders;
 	}
 	
 } // end class Customer

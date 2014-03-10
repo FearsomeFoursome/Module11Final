@@ -132,8 +132,6 @@ public class LoginScreen extends javax.swing.JFrame {
       Test = new javax.swing.JPanel();
       TestTabLoadCustomersButton = new javax.swing.JButton();
       PlaceOrdersButton = new javax.swing.JButton();
-      jButton3 = new javax.swing.JButton();
-      jButton4 = new javax.swing.JButton();
       orderDisplay = new javax.swing.JButton();
       jScrollPane1 = new javax.swing.JScrollPane();
       output = new javax.swing.JTextArea();
@@ -260,7 +258,7 @@ public class LoginScreen extends javax.swing.JFrame {
                .addComponent(LoginTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(ReqFieldInstruct2)
-            .addContainerGap(283, Short.MAX_VALUE))
+            .addContainerGap(286, Short.MAX_VALUE))
       );
 
       tabCstLogin.addTab("Customer Login", CustomerLogin);
@@ -418,7 +416,7 @@ public class LoginScreen extends javax.swing.JFrame {
                .addComponent(jLabel3))
             .addGap(18, 18, 18)
             .addComponent(ReqFieldInstruct)
-            .addContainerGap(248, Short.MAX_VALUE))
+            .addContainerGap(249, Short.MAX_VALUE))
       );
 
       tabCstLogin.addTab("New Customer", NewCustomer);
@@ -508,7 +506,7 @@ public class LoginScreen extends javax.swing.JFrame {
                            .addComponent(ForgotTabOKButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                            .addComponent(ForgotTabCancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)))
                      .addComponent(ReqFieldInstruct1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(0, 414, Short.MAX_VALUE)))
+                  .addGap(0, 413, Short.MAX_VALUE)))
             .addContainerGap())
       );
       ForgotPasswordLayout.setVerticalGroup(
@@ -518,7 +516,7 @@ public class LoginScreen extends javax.swing.JFrame {
             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(OlympicPride2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
             .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(ForgotPasswordLayout.createSequentialGroup()
                   .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -981,7 +979,7 @@ public class LoginScreen extends javax.swing.JFrame {
                      .addComponent(ModifyTabEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModifyTabLoadButton))
                   .addGap(35, 35, 35)
-                  .addComponent(ShippingInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                  .addComponent(ShippingInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                   .addGap(18, 18, 18))
                .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                   .addComponent(BillingInfoLabel)
@@ -1079,6 +1077,12 @@ public class LoginScreen extends javax.swing.JFrame {
 
       tabCstLogin.addTab("Modify Customer Info", ModifyCustomerInfo);
 
+      Test.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            TestFocusGained(evt);
+         }
+      });
+
       TestTabLoadCustomersButton.setText("Load Demo Customers");
       TestTabLoadCustomersButton.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1093,11 +1097,12 @@ public class LoginScreen extends javax.swing.JFrame {
          }
       });
 
-      jButton3.setText("Test_2");
-
-      jButton4.setText("Test_3");
-
       orderDisplay.setText("Display Orders");
+      orderDisplay.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            orderDisplayActionPerformed(evt);
+         }
+      });
 
       output.setColumns(20);
       output.setRows(5);
@@ -1114,35 +1119,29 @@ public class LoginScreen extends javax.swing.JFrame {
             .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                .addComponent(PlaceOrdersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-               .addComponent(orderDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-               .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-               .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGap(290, 290, 290)
-            .addComponent(DemoOutput)
-            .addContainerGap(411, Short.MAX_VALUE))
-         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TestLayout.createSequentialGroup()
-            .addContainerGap(538, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGap(41, 41, 41))
+               .addComponent(orderDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(294, 294, 294)
+            .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addComponent(DemoOutput)
+               .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(102, Short.MAX_VALUE))
       );
       TestLayout.setVerticalGroup(
          TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(TestLayout.createSequentialGroup()
             .addGap(52, 52, 52)
-            .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(PlaceOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(orderDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-               .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-               .addComponent(DemoOutput))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(52, Short.MAX_VALUE))
+            .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(TestLayout.createSequentialGroup()
+                  .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(PlaceOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(orderDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addGroup(TestLayout.createSequentialGroup()
+                  .addComponent(DemoOutput)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addContainerGap(265, Short.MAX_VALUE))
       );
 
       tabCstLogin.addTab("Test", Test);
@@ -1685,6 +1684,10 @@ public class LoginScreen extends javax.swing.JFrame {
 		//confirmation for user that the button worked
 		JOptionPane.showMessageDialog(rootPane, "Test customers loaded.", "Successful", WIDTH);
 		
+		//make next test button appear!
+		PlaceOrdersButton.setEnabled(true);
+		PlaceOrdersButton.setVisible(true);
+		
    }//GEN-LAST:event_TestTabLoadCustomersButtonActionPerformed
 
    private void ForgotTabDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabDropdownActionPerformed
@@ -1824,6 +1827,11 @@ public class LoginScreen extends javax.swing.JFrame {
         ModifyTabSaveButton.setNextFocusableComponent(ModifyTabCancelButton);
         ModifyTabCancelButton.setNextFocusableComponent(ModifyTabEmailField);
         
+		  
+		  PlaceOrdersButton.setEnabled(false);
+		orderDisplay.setEnabled(false);
+		PlaceOrdersButton.setVisible(false);
+		orderDisplay.setVisible(false);
     }//GEN-LAST:event_tabCstLoginStateChanged
 
    private void ModifyTabCardExpFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCardExpFieldActionPerformed
@@ -1867,7 +1875,9 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifyTabCardExpFieldFocusGained
 
     private void PlaceOrdersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceOrdersButtonActionPerformed
-        Order demoOrd1 = new Order("1000", "03/12/2014");
+       //make some demo orders and put them in an order map 
+		 
+		 Order demoOrd1 = new Order("1000", "03/12/2014");
         Order demoOrd2 = new Order("1001", "03/12/2014");
         
         demoOrd1.setProductIDs(555555);
@@ -1882,7 +1892,25 @@ public class LoginScreen extends javax.swing.JFrame {
         ordermap.put(demoOrd1.getOrderID(), demoOrd1);
         
         JOptionPane.showMessageDialog(rootPane, "Test orders loaded.", "Successful", WIDTH);
+		  
+		  //make next test button appear!
+		  orderDisplay.setEnabled(true);
+		  orderDisplay.setVisible(true);
     }//GEN-LAST:event_PlaceOrdersButtonActionPerformed
+
+   private void TestFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TestFocusGained
+      
+   }//GEN-LAST:event_TestFocusGained
+
+   private void orderDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderDisplayActionPerformed
+   Order currentOrder = (Order) ordermap.get("1000");
+	Customer currentCustomer = (Customer) custmap.get(currentOrder.getCustID());
+	output.setText("Customer Email: "+currentCustomer.getEmail()+"\n"
+			  +"Customer ID: "+currentOrder.getCustID()+"\n"+"Order ID: "
+			  +currentOrder.getOrderID()+"\n"+"Date: "+currentOrder.getOrderDate()
+			  +"\n"+"Product ID: "+currentOrder.getProductIDs()+"\n"
+			  +"-----------------------------------------------------");
+   }//GEN-LAST:event_orderDisplayActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -2002,8 +2030,6 @@ public class LoginScreen extends javax.swing.JFrame {
    private javax.swing.JLabel ShippingInfoLabel;
    private javax.swing.JPanel Test;
    private javax.swing.JButton TestTabLoadCustomersButton;
-   private javax.swing.JButton jButton3;
-   private javax.swing.JButton jButton4;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JLabel jLabel2;
    private javax.swing.JLabel jLabel3;

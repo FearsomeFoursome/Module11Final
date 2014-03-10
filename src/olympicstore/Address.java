@@ -1,3 +1,7 @@
+/* 
+ * Address class code
+ * Class primarily built by Amy Roberts.
+ */
 
 package olympicstore;
 

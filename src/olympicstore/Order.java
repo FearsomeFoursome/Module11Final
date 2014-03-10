@@ -44,7 +44,19 @@ void setOrderDate(String oDate) { orderDate = oDate; }
 
 void setProductIDs(long prodID) { productIDs.add(prodID); }
 
-Object getProductIDs() { return productIDs.toArray(); }
+String getProductIDs() {
+	String orders = "";
+		
+	//loop through the array and convert the values to a string
+		for(int z = 0; z < productIDs.size(); z++)
+		{
+			orders = orders + (long) productIDs.get(z);
+			//add a comma if it isn't the last time through the loop
+			if (z < (productIDs.size() - 1))
+				orders = orders + ", ";
+		}
+		return orders;
+}
 
     
 }

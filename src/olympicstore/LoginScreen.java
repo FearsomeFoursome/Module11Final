@@ -204,7 +204,7 @@ public class LoginScreen extends javax.swing.JFrame {
       OlympicPride.setFont(new java.awt.Font("Gill Sans", 1, 48)); // NOI18N
       OlympicPride.setText("Olympic Pride");
 
-      jLabel2.setText("Color label");
+      jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/olympicstore/colorbar.jpg"))); // NOI18N
 
       ReqFieldInstruct2.setFont(new java.awt.Font("Lucida Grande", 2, 10)); // NOI18N
       ReqFieldInstruct2.setForeground(new java.awt.Color(255, 0, 51));
@@ -218,7 +218,7 @@ public class LoginScreen extends javax.swing.JFrame {
             .addContainerGap()
             .addGroup(CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(CustomerLoginLayout.createSequentialGroup()
-                  .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
                   .addContainerGap())
                .addGroup(CustomerLoginLayout.createSequentialGroup()
                   .addGroup(CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +236,7 @@ public class LoginScreen extends javax.swing.JFrame {
                            .addComponent(LoginTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                      .addComponent(OlympicPride, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ReqFieldInstruct2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(0, 463, Short.MAX_VALUE))))
+                  .addGap(0, 0, Short.MAX_VALUE))))
       );
       CustomerLoginLayout.setVerticalGroup(
          CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +343,7 @@ public class LoginScreen extends javax.swing.JFrame {
          }
       });
 
-      jLabel4.setText("Color Label");
+      jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/olympicstore/colorbar.jpg"))); // NOI18N
 
       javax.swing.GroupLayout NewCustomerLayout = new javax.swing.GroupLayout(NewCustomer);
       NewCustomer.setLayout(NewCustomerLayout);
@@ -353,33 +353,35 @@ public class LoginScreen extends javax.swing.JFrame {
             .addContainerGap()
             .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(NewCustomerLayout.createSequentialGroup()
-                  .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(OlympicPride1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addGroup(NewCustomerLayout.createSequentialGroup()
-                        .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                           .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                              .addComponent(ConfirmNewPasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                              .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                              .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                           .addComponent(NewPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                           .addComponent(EmailAddress))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                           .addComponent(NewTabEmailField)
-                           .addComponent(NewTabCreatePasswordField)
-                           .addComponent(NewTabQuestionDropdown, 0, 450, Short.MAX_VALUE)
-                           .addComponent(NewTabAnswerField)
-                           .addComponent(NewTabConfirmPasswordField))))
-                  .addGap(161, 161, 161)
-                  .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(NewTabSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(NewTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addContainerGap(68, Short.MAX_VALUE))
+                  .addComponent(ReqFieldInstruct, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addGap(0, 778, Short.MAX_VALUE))
                .addGroup(NewCustomerLayout.createSequentialGroup()
                   .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(ReqFieldInstruct, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(0, 0, Short.MAX_VALUE))))
+                     .addGroup(NewCustomerLayout.createSequentialGroup()
+                        .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                           .addComponent(OlympicPride1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                           .addGroup(NewCustomerLayout.createSequentialGroup()
+                              .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                 .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ConfirmNewPasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                 .addComponent(NewPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                 .addComponent(EmailAddress))
+                              .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                              .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                 .addComponent(NewTabEmailField)
+                                 .addComponent(NewTabCreatePasswordField)
+                                 .addComponent(NewTabQuestionDropdown, 0, 450, Short.MAX_VALUE)
+                                 .addComponent(NewTabAnswerField)
+                                 .addComponent(NewTabConfirmPasswordField))))
+                        .addGap(161, 161, 161)
+                        .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                           .addComponent(NewTabSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                           .addComponent(NewTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 58, Short.MAX_VALUE))
+                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                  .addContainerGap())))
       );
       NewCustomerLayout.setVerticalGroup(
          NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -478,7 +480,7 @@ public class LoginScreen extends javax.swing.JFrame {
       ReqFieldInstruct1.setForeground(new java.awt.Color(255, 0, 51));
       ReqFieldInstruct1.setText("* indicates required field");
 
-      jLabel5.setText("Color Label");
+      jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/olympicstore/colorbar.jpg"))); // NOI18N
 
       javax.swing.GroupLayout ForgotPasswordLayout = new javax.swing.GroupLayout(ForgotPassword);
       ForgotPassword.setLayout(ForgotPasswordLayout);
@@ -487,7 +489,7 @@ public class LoginScreen extends javax.swing.JFrame {
          .addGroup(ForgotPasswordLayout.createSequentialGroup()
             .addContainerGap()
             .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-               .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+               .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
                .addGroup(ForgotPasswordLayout.createSequentialGroup()
                   .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                      .addComponent(OlympicPride2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -506,7 +508,7 @@ public class LoginScreen extends javax.swing.JFrame {
                            .addComponent(ForgotTabOKButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                            .addComponent(ForgotTabCancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)))
                      .addComponent(ReqFieldInstruct1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(0, 413, Short.MAX_VALUE)))
+                  .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
       );
       ForgotPasswordLayout.setVerticalGroup(
@@ -549,7 +551,7 @@ public class LoginScreen extends javax.swing.JFrame {
          }
       });
 
-      jLabel9.setText("Color label");
+      jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/olympicstore/colorbar.jpg"))); // NOI18N
 
       OlympicPride5.setFont(new java.awt.Font("Gill Sans", 1, 48)); // NOI18N
       OlympicPride5.setText("Olympic Pride");
@@ -968,6 +970,7 @@ public class LoginScreen extends javax.swing.JFrame {
       ModifyCustomerInfoLayout.setVerticalGroup(
          ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
+            .addContainerGap()
             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -979,7 +982,7 @@ public class LoginScreen extends javax.swing.JFrame {
                      .addComponent(ModifyTabEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModifyTabLoadButton))
                   .addGap(35, 35, 35)
-                  .addComponent(ShippingInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                  .addComponent(ShippingInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                   .addGap(18, 18, 18))
                .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                   .addComponent(BillingInfoLabel)

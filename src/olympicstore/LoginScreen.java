@@ -2,12 +2,18 @@
  * Fearsome Foursome
  * Object Oriented Programming
  * Final Project
+ * March 2014
+ * 
+ * Majority of coding by Amy Roberts.
+ * Order class and handling by Scott Young.
+ * GUI work by Bella Belova.
+ * Supporting documentation primarily by Benny Nunez.
  * 
  * This project is a prototype for a customer information system.
  * It allows a customer to create a login, log in, reset their password,
  * and modify their account information.
  * A tab of test buttons is provided because this is a prototype; data is
- * not persistent.
+ * not persistent. The order data is all mock.
  * 
  */
 package olympicstore;
@@ -19,10 +25,10 @@ import javax.swing.JOptionPane;
 public class LoginScreen extends javax.swing.JFrame {
 
 	// non-generated variables
-	// treemap for customer storage; currentcust to make object handling easier, and
+	// treemaps for storage; currentcust to make object handling easier, and
 	// errortext for input error handling
 	 TreeMap custmap = new TreeMap();
-         TreeMap ordermap = new TreeMap();
+	 TreeMap ordermap = new TreeMap();
 	 private Customer currentcust;
 	 private String errortext;
 	 
@@ -1166,6 +1172,7 @@ public class LoginScreen extends javax.swing.JFrame {
       pack();
    }// </editor-fold>//GEN-END:initComponents
 
+	 //select all text within fields when focus is gained
    private void NewTabEmailFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NewTabEmailFieldFocusGained
       NewTabEmailField.selectAll();
    }//GEN-LAST:event_NewTabEmailFieldFocusGained
@@ -1195,7 +1202,7 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabBillFNameFieldFocusGained
 
    private void ModifyTabBillFNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillFNameFieldActionPerformed
-
+		//misclick, no code
    }//GEN-LAST:event_ModifyTabBillFNameFieldActionPerformed
 
    private void ModifyTabBillZIPFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillZIPFieldFocusGained
@@ -1203,11 +1210,11 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabBillZIPFieldFocusGained
 
    private void ModifyTabBillZIPFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillZIPFieldActionPerformed
-
+		//misclick, no code
    }//GEN-LAST:event_ModifyTabBillZIPFieldActionPerformed
 
    private void ModifyTabBillStateDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillStateDropdownActionPerformed
-      // TODO add your handling code here:
+		//misclick, no code
    }//GEN-LAST:event_ModifyTabBillStateDropdownActionPerformed
 
    private void ModifyTabShipPhoneFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipPhoneFieldFocusGained
@@ -1219,11 +1226,11 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabShipZIPFieldFocusGained
 
    private void ModifyTabShipZIPFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipZIPFieldActionPerformed
-
+		//misclick, no code
    }//GEN-LAST:event_ModifyTabShipZIPFieldActionPerformed
 
    private void ModifyTabShipStateDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipStateDropdownActionPerformed
-      // TODO add your handling code here:
+		//misclick, no code
    }//GEN-LAST:event_ModifyTabShipStateDropdownActionPerformed
 
    private void ModifyTabShipCityFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipCityFieldFocusGained
@@ -1239,7 +1246,7 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabShipAddress1FieldFocusGained
 
    private void ModifyTabShipLNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipLNameFieldFocusGained
-      // TODO add your handling code here:
+      ModifyTabShipLNameField.selectAll();
    }//GEN-LAST:event_ModifyTabShipLNameFieldFocusGained
 
    private void ModifyTabShipFNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipFNameFieldFocusGained
@@ -1247,7 +1254,7 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabShipFNameFieldFocusGained
 
    private void ModifyTabShipFNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipFNameFieldActionPerformed
-
+		//misclick, no code
    }//GEN-LAST:event_ModifyTabShipFNameFieldActionPerformed
 
    private void ModifyTabCardNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabCardNameFieldFocusGained
@@ -1259,11 +1266,12 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabEmailFieldFocusGained
 
    private void ModifyTabCardNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCardNameFieldActionPerformed
-
+		//misclick, no code
    }//GEN-LAST:event_ModifyTabCardNameFieldActionPerformed
 
    private void LoginTabOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabOKButtonActionPerformed
 
+		//this button logs the customer into the system
 		//check to make sure fields have data
 		if(LoginTabEmailField.getText().equals("") || LoginTabPasswordField.getText().equals(""))
 		{
@@ -1303,7 +1311,7 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_LoginTabCancelButtonActionPerformed
 
    private void NewTabSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabSaveButtonActionPerformed
-      
+      //this button saves a new customer's data into the system
 		//input/error handling
 		//reinitialize error handling variables first
 		errortext = "";
@@ -1378,7 +1386,8 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_NewTabSaveButtonActionPerformed
 
    private void NewTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabCancelButtonActionPerformed
-       NewTabEmailField.setText(""); 
+		//clear all fields
+		NewTabEmailField.setText(""); 
        NewTabCreatePasswordField.setText("");
        NewTabConfirmPasswordField.setText("");
        NewTabQuestionDropdown.setSelectedIndex(0);
@@ -1427,13 +1436,15 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ForgotTabOKButtonActionPerformed
 
    private void ForgotTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabCancelButtonActionPerformed
-        ForgotTabEmailField.setText("");
+		//clear all fields
+		ForgotTabEmailField.setText("");
         ForgotTabAnswerField.setText("");
         ForgotTabDropdown.setSelectedIndex(0);
         ForgotTabEmailField.requestFocus();
    }//GEN-LAST:event_ForgotTabCancelButtonActionPerformed
 
    private void ModifyTabLoadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabLoadButtonActionPerformed
+		//this tab loads data from the customer who is selected into the GUI
 		//check if the map contains an object keyed on the entered email
 		if(custmap.containsKey(ModifyTabEmailField.getText()))
 		{
@@ -1479,6 +1490,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
    private void ModifyTabSaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabSaveButtonActionPerformed
 
+		//this button saves changes to the current customer
 		//input checking and error handling
 		//reinitialize error handling variable
 		errortext = "";
@@ -1636,7 +1648,8 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabSaveButtonActionPerformed
 
    private void ModifyTabCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCancelButtonActionPerformed
-       ModifyTabEmailField.setText("");
+		//clear all fields
+		ModifyTabEmailField.setText("");
 		 ModifyTabEmailField.setEditable(true);
        ModifyTabShipFNameField.setText("");
        ModifyTabShipLNameField.setText("");
@@ -1662,6 +1675,7 @@ public class LoginScreen extends javax.swing.JFrame {
 
    private void TestTabLoadCustomersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TestTabLoadCustomersButtonActionPerformed
 
+		//test button - load some demo customers for testing purposes
 		// initialize demo customers
 		Customer democust1 = new Customer("joe@gmail.com", "password", 2, "Fido");
 		Customer democust2 = new Customer("sally@gmail.com", "sallyrules", 3, "Central");
@@ -1698,91 +1712,91 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ForgotTabDropdownActionPerformed
 
    private void NewTabCreatePasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabCreatePasswordFieldActionPerformed
-
+		//misclick, no code
    }//GEN-LAST:event_NewTabCreatePasswordFieldActionPerformed
 
     private void LoginTabEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabEmailFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_LoginTabEmailFieldActionPerformed
 
     private void LoginTabPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabPasswordFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_LoginTabPasswordFieldActionPerformed
 
     private void NewTabEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabEmailFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_NewTabEmailFieldActionPerformed
 
     private void NewTabConfirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabConfirmPasswordFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_NewTabConfirmPasswordFieldActionPerformed
 
     private void NewTabAnswerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabAnswerFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_NewTabAnswerFieldActionPerformed
 
     private void ForgotTabEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabEmailFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ForgotTabEmailFieldActionPerformed
 
     private void ForgotTabAnswerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabAnswerFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ForgotTabAnswerFieldActionPerformed
 
     private void ModifyTabShipLNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipLNameFieldActionPerformed
-        ModifyTabShipLNameField.selectAll();
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabShipLNameFieldActionPerformed
 
     private void ModifyTabShipAddress1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipAddress1FieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabShipAddress1FieldActionPerformed
 
     private void ModifyTabShipAddress2FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipAddress2FieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabShipAddress2FieldActionPerformed
 
     private void ModifyTabShipCityFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipCityFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabShipCityFieldActionPerformed
 
     private void ModifyTabShipPhoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipPhoneFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabShipPhoneFieldActionPerformed
 
     private void ModifyTabCardNumFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCardNumFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabCardNumFieldActionPerformed
 
     private void ModifyTabBillLNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillLNameFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabBillLNameFieldActionPerformed
 
     private void ModifyTabBillAddress1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillAddress1FieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabBillAddress1FieldActionPerformed
 
     private void ModifyTabBillAddress2FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillAddress2FieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabBillAddress2FieldActionPerformed
 
     private void ModifyTabBillCityFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillCityFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabBillCityFieldActionPerformed
 
     private void ModifyTabBillPhoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillPhoneFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabBillPhoneFieldActionPerformed
 
     private void ModifyTabEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabEmailFieldActionPerformed
-
+		//misclick, no code
     }//GEN-LAST:event_ModifyTabEmailFieldActionPerformed
 
     private void tabCstLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tabCstLoginFocusGained
-        
+		//misclick, no code
     }//GEN-LAST:event_tabCstLoginFocusGained
 
     private void tabCstLoginStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabCstLoginStateChanged
-        
+        //request focus and next-focusable to control tabbing
         LoginTabEmailField.requestFocus();
         LoginTabEmailField.setNextFocusableComponent(LoginTabPasswordField);
         LoginTabPasswordField.setNextFocusableComponent(LoginTabOKButton);
@@ -1830,7 +1844,7 @@ public class LoginScreen extends javax.swing.JFrame {
         ModifyTabSaveButton.setNextFocusableComponent(ModifyTabCancelButton);
         ModifyTabCancelButton.setNextFocusableComponent(ModifyTabEmailField);
         
-		  
+		  //lock and hide second and third test buttons, since they break unless first button is pushed
 		  PlaceOrdersButton.setEnabled(false);
 		orderDisplay.setEnabled(false);
 		PlaceOrdersButton.setVisible(false);
@@ -1838,7 +1852,7 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_tabCstLoginStateChanged
 
    private void ModifyTabCardExpFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCardExpFieldActionPerformed
-      // TODO add your handling code here:
+		//misclick, no code
    }//GEN-LAST:event_ModifyTabCardExpFieldActionPerformed
 
     private void LoginTabEmailFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginTabEmailFieldFocusGained
@@ -1878,7 +1892,8 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifyTabCardExpFieldFocusGained
 
     private void PlaceOrdersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceOrdersButtonActionPerformed
-       //make some demo orders and put them in an order map 
+       //this button creates demo orders in a structure
+		 //make some demo orders and put them in an order map 
 		 
 		 Order demoOrd1 = new Order("1000", "03/12/2014");
         Order demoOrd2 = new Order("1001", "03/12/2014");
@@ -1902,17 +1917,20 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_PlaceOrdersButtonActionPerformed
 
    private void TestFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TestFocusGained
-      
+		//misclick, no code
    }//GEN-LAST:event_TestFocusGained
 
    private void orderDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderDisplayActionPerformed
-   Order currentOrder = (Order) ordermap.get("1000");
-	Customer currentCustomer = (Customer) custmap.get(currentOrder.getCustID());
-	output.setText("Customer Email: "+currentCustomer.getEmail()+"\n"
+ 
+		//this button prints out data from a specific test order into the text box
+		//set a current order and customer for easier handling, then output
+		Order currentOrder = (Order) ordermap.get("1000");	
+		Customer currentCustomer = (Customer) custmap.get(currentOrder.getCustID());	
+		output.setText("Customer Email: "+currentCustomer.getEmail()+"\n"
 			  +"Customer ID: "+currentOrder.getCustID()+"\n"+"Order ID: "
 			  +currentOrder.getOrderID()+"\n"+"Date: "+currentOrder.getOrderDate()
 			  +"\n"+"Product ID: "+currentOrder.getProductIDs()+"\n"
-			  +"-----------------------------------------------------");
+			  +"-----------------------------------------------");
    }//GEN-LAST:event_orderDisplayActionPerformed
 
     public static void main(String args[]) {

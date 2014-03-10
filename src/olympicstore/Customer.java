@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Customer class code.
+ * Class built primarily by Amy Roberts.
  */
 package olympicstore;
 
@@ -97,7 +97,7 @@ public class Customer {
 		return CCName;
 	} // end getCCName
 	
-	//complicated gets and sets for address objects inside of customer objects
+	//pass-through gets and sets for address objects inside of customer objects
 	void setBillAddress(String fname, String lname, String add1, String add2, String city, String state, String zip, String phone)
 	{
 		BillAddress = new Address(fname, lname, add1, add2, city, state, zip, phone);
@@ -108,7 +108,7 @@ public class Customer {
 		ShipAddress = new Address(fname, lname, add1, add2, city, state, zip, phone);
 	} // end setShipAddress
 
-	//gets for all pieces of address data
+	//gets for all pieces of address data, using Address class methods
 	String getBillFName()
 	{
 		return BillAddress.getFName();
@@ -194,6 +194,7 @@ public class Customer {
 		CustOrders.add(orderid);
 	}
 	
+	//for testing purposes, output a string
 	String getOrders()
 	{
 		String orders = "";

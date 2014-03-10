@@ -15,6 +15,10 @@
  * A tab of test buttons is provided because this is a prototype; data is
  * not persistent. The order data is all mock.
  * 
+ * This project was built in NetBeans, as a collaboration between multiple people
+ * on multiple computers. Some spacing may look strange due to different
+ * settings, but this has no bearing on how the application runs.
+ * 
  */
 package olympicstore;
 

@@ -1,13 +1,10 @@
 /*
  * Class for mock Order
+ * Class created primarily by Scott Young.
  */
 package olympicstore;
 import java.util.ArrayList;
 
-/**
- *
- * @author SYoung
- */
 public class Order {
     
     // instance variables
@@ -44,6 +41,7 @@ void setOrderDate(String oDate) { orderDate = oDate; }
 
 void setProductIDs(long prodID) { productIDs.add(prodID); }
 
+//for demo purposes, output a string
 String getProductIDs() {
 	String orders = "";
 		

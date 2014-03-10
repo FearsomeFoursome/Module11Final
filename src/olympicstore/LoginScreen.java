@@ -22,6 +22,7 @@ public class LoginScreen extends javax.swing.JFrame {
 	// treemap for customer storage; currentcust to make object handling easier, and
 	// errortext for input error handling
 	 TreeMap custmap = new TreeMap();
+         TreeMap ordermap = new TreeMap();
 	 private Customer currentcust;
 	 private String errortext;
 	 
@@ -130,10 +131,11 @@ public class LoginScreen extends javax.swing.JFrame {
       ReqFieldInstruct3 = new javax.swing.JLabel();
       Test = new javax.swing.JPanel();
       TestTabLoadCustomersButton = new javax.swing.JButton();
-      jButton2 = new javax.swing.JButton();
-      jButton3 = new javax.swing.JButton();
-      jButton4 = new javax.swing.JButton();
-      jButton5 = new javax.swing.JButton();
+      PlaceOrdersButton = new javax.swing.JButton();
+      orderDisplay = new javax.swing.JButton();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      output = new javax.swing.JTextArea();
+      DemoOutput = new javax.swing.JLabel();
 
       javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
       jPanel1.setLayout(jPanel1Layout);
@@ -168,6 +170,11 @@ public class LoginScreen extends javax.swing.JFrame {
             LoginTabEmailFieldActionPerformed(evt);
          }
       });
+      LoginTabEmailField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            LoginTabEmailFieldFocusGained(evt);
+         }
+      });
 
       LoginTabOKButton.setText("OK");
       LoginTabOKButton.addActionListener(new java.awt.event.ActionListener() {
@@ -188,11 +195,16 @@ public class LoginScreen extends javax.swing.JFrame {
             LoginTabPasswordFieldActionPerformed(evt);
          }
       });
+      LoginTabPasswordField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            LoginTabPasswordFieldFocusGained(evt);
+         }
+      });
 
       OlympicPride.setFont(new java.awt.Font("Gill Sans", 1, 48)); // NOI18N
       OlympicPride.setText("Olympic Pride");
 
-      jLabel2.setText("Color label");
+      jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/olympicstore/colorbar.jpg"))); // NOI18N
 
       ReqFieldInstruct2.setFont(new java.awt.Font("Lucida Grande", 2, 10)); // NOI18N
       ReqFieldInstruct2.setForeground(new java.awt.Color(255, 0, 51));
@@ -206,7 +218,7 @@ public class LoginScreen extends javax.swing.JFrame {
             .addContainerGap()
             .addGroup(CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(CustomerLoginLayout.createSequentialGroup()
-                  .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                  .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
                   .addContainerGap())
                .addGroup(CustomerLoginLayout.createSequentialGroup()
                   .addGroup(CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -224,7 +236,7 @@ public class LoginScreen extends javax.swing.JFrame {
                            .addComponent(LoginTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
                      .addComponent(OlympicPride, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ReqFieldInstruct2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(0, 463, Short.MAX_VALUE))))
+                  .addGap(0, 0, Short.MAX_VALUE))))
       );
       CustomerLoginLayout.setVerticalGroup(
          CustomerLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +258,7 @@ public class LoginScreen extends javax.swing.JFrame {
                .addComponent(LoginTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
             .addComponent(ReqFieldInstruct2)
-            .addContainerGap(283, Short.MAX_VALUE))
+            .addContainerGap(286, Short.MAX_VALUE))
       );
 
       tabCstLogin.addTab("Customer Login", CustomerLogin);
@@ -283,10 +295,20 @@ public class LoginScreen extends javax.swing.JFrame {
             NewTabCreatePasswordFieldActionPerformed(evt);
          }
       });
+      NewTabCreatePasswordField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            NewTabCreatePasswordFieldFocusGained(evt);
+         }
+      });
 
       NewTabConfirmPasswordField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             NewTabConfirmPasswordFieldActionPerformed(evt);
+         }
+      });
+      NewTabConfirmPasswordField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            NewTabConfirmPasswordFieldFocusGained(evt);
          }
       });
 
@@ -299,6 +321,11 @@ public class LoginScreen extends javax.swing.JFrame {
       NewTabAnswerField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             NewTabAnswerFieldActionPerformed(evt);
+         }
+      });
+      NewTabAnswerField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            NewTabAnswerFieldFocusGained(evt);
          }
       });
 
@@ -316,7 +343,7 @@ public class LoginScreen extends javax.swing.JFrame {
          }
       });
 
-      jLabel4.setText("Color Label");
+      jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/olympicstore/colorbar.jpg"))); // NOI18N
 
       javax.swing.GroupLayout NewCustomerLayout = new javax.swing.GroupLayout(NewCustomer);
       NewCustomer.setLayout(NewCustomerLayout);
@@ -326,33 +353,35 @@ public class LoginScreen extends javax.swing.JFrame {
             .addContainerGap()
             .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(NewCustomerLayout.createSequentialGroup()
-                  .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(OlympicPride1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addGroup(NewCustomerLayout.createSequentialGroup()
-                        .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                           .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                              .addComponent(ConfirmNewPasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                              .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                              .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                           .addComponent(NewPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                           .addComponent(EmailAddress))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                           .addComponent(NewTabEmailField)
-                           .addComponent(NewTabCreatePasswordField)
-                           .addComponent(NewTabQuestionDropdown, 0, 450, Short.MAX_VALUE)
-                           .addComponent(NewTabAnswerField)
-                           .addComponent(NewTabConfirmPasswordField))))
-                  .addGap(161, 161, 161)
-                  .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(NewTabSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(NewTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addContainerGap(68, Short.MAX_VALUE))
+                  .addComponent(ReqFieldInstruct, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addGap(0, 778, Short.MAX_VALUE))
                .addGroup(NewCustomerLayout.createSequentialGroup()
                   .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 681, javax.swing.GroupLayout.PREFERRED_SIZE)
-                     .addComponent(ReqFieldInstruct, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(0, 0, Short.MAX_VALUE))))
+                     .addGroup(NewCustomerLayout.createSequentialGroup()
+                        .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                           .addComponent(OlympicPride1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                           .addGroup(NewCustomerLayout.createSequentialGroup()
+                              .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                 .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ConfirmNewPasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                 .addComponent(NewPasswordLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                 .addComponent(EmailAddress))
+                              .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                              .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                 .addComponent(NewTabEmailField)
+                                 .addComponent(NewTabCreatePasswordField)
+                                 .addComponent(NewTabQuestionDropdown, 0, 450, Short.MAX_VALUE)
+                                 .addComponent(NewTabAnswerField)
+                                 .addComponent(NewTabConfirmPasswordField))))
+                        .addGap(161, 161, 161)
+                        .addGroup(NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                           .addComponent(NewTabSaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                           .addComponent(NewTabCancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 58, Short.MAX_VALUE))
+                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                  .addContainerGap())))
       );
       NewCustomerLayout.setVerticalGroup(
          NewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -389,7 +418,7 @@ public class LoginScreen extends javax.swing.JFrame {
                .addComponent(jLabel3))
             .addGap(18, 18, 18)
             .addComponent(ReqFieldInstruct)
-            .addContainerGap(248, Short.MAX_VALUE))
+            .addContainerGap(249, Short.MAX_VALUE))
       );
 
       tabCstLogin.addTab("New Customer", NewCustomer);
@@ -411,10 +440,20 @@ public class LoginScreen extends javax.swing.JFrame {
             ForgotTabAnswerFieldActionPerformed(evt);
          }
       });
+      ForgotTabAnswerField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            ForgotTabAnswerFieldFocusGained(evt);
+         }
+      });
 
       ForgotTabEmailField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             ForgotTabEmailFieldActionPerformed(evt);
+         }
+      });
+      ForgotTabEmailField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            ForgotTabEmailFieldFocusGained(evt);
          }
       });
 
@@ -441,7 +480,7 @@ public class LoginScreen extends javax.swing.JFrame {
       ReqFieldInstruct1.setForeground(new java.awt.Color(255, 0, 51));
       ReqFieldInstruct1.setText("* indicates required field");
 
-      jLabel5.setText("Color Label");
+      jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/olympicstore/colorbar.jpg"))); // NOI18N
 
       javax.swing.GroupLayout ForgotPasswordLayout = new javax.swing.GroupLayout(ForgotPassword);
       ForgotPassword.setLayout(ForgotPasswordLayout);
@@ -450,7 +489,7 @@ public class LoginScreen extends javax.swing.JFrame {
          .addGroup(ForgotPasswordLayout.createSequentialGroup()
             .addContainerGap()
             .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-               .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+               .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 904, Short.MAX_VALUE)
                .addGroup(ForgotPasswordLayout.createSequentialGroup()
                   .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                      .addComponent(OlympicPride2, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -469,7 +508,7 @@ public class LoginScreen extends javax.swing.JFrame {
                            .addComponent(ForgotTabOKButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                            .addComponent(ForgotTabCancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)))
                      .addComponent(ReqFieldInstruct1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
-                  .addGap(0, 414, Short.MAX_VALUE)))
+                  .addGap(0, 0, Short.MAX_VALUE)))
             .addContainerGap())
       );
       ForgotPasswordLayout.setVerticalGroup(
@@ -479,7 +518,7 @@ public class LoginScreen extends javax.swing.JFrame {
             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addComponent(OlympicPride2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
             .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                .addGroup(ForgotPasswordLayout.createSequentialGroup()
                   .addGroup(ForgotPasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -512,7 +551,7 @@ public class LoginScreen extends javax.swing.JFrame {
          }
       });
 
-      jLabel9.setText("Color label");
+      jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/olympicstore/colorbar.jpg"))); // NOI18N
 
       OlympicPride5.setFont(new java.awt.Font("Gill Sans", 1, 48)); // NOI18N
       OlympicPride5.setText("Olympic Pride");
@@ -801,12 +840,22 @@ public class LoginScreen extends javax.swing.JFrame {
             ModifyTabCardNumFieldActionPerformed(evt);
          }
       });
+      ModifyTabCardNumField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            ModifyTabCardNumFieldFocusGained(evt);
+         }
+      });
 
       jLabel6.setText("MM/YY");
 
       ModifyTabCardExpField.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
             ModifyTabCardExpFieldActionPerformed(evt);
+         }
+      });
+      ModifyTabCardExpField.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            ModifyTabCardExpFieldFocusGained(evt);
          }
       });
 
@@ -921,6 +970,7 @@ public class LoginScreen extends javax.swing.JFrame {
       ModifyCustomerInfoLayout.setVerticalGroup(
          ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
+            .addContainerGap()
             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
             .addGroup(ModifyCustomerInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -932,7 +982,7 @@ public class LoginScreen extends javax.swing.JFrame {
                      .addComponent(ModifyTabEmailField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                      .addComponent(ModifyTabLoadButton))
                   .addGap(35, 35, 35)
-                  .addComponent(ShippingInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                  .addComponent(ShippingInfoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                   .addGap(18, 18, 18))
                .addGroup(ModifyCustomerInfoLayout.createSequentialGroup()
                   .addComponent(BillingInfoLabel)
@@ -1030,6 +1080,12 @@ public class LoginScreen extends javax.swing.JFrame {
 
       tabCstLogin.addTab("Modify Customer Info", ModifyCustomerInfo);
 
+      Test.addFocusListener(new java.awt.event.FocusAdapter() {
+         public void focusGained(java.awt.event.FocusEvent evt) {
+            TestFocusGained(evt);
+         }
+      });
+
       TestTabLoadCustomersButton.setText("Load Demo Customers");
       TestTabLoadCustomersButton.addActionListener(new java.awt.event.ActionListener() {
          public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1037,13 +1093,25 @@ public class LoginScreen extends javax.swing.JFrame {
          }
       });
 
-      jButton2.setText("Place Demo Orders");
+      PlaceOrdersButton.setText("Place Demo Orders");
+      PlaceOrdersButton.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            PlaceOrdersButtonActionPerformed(evt);
+         }
+      });
 
-      jButton3.setText("Test_2");
+      orderDisplay.setText("Display Orders");
+      orderDisplay.addActionListener(new java.awt.event.ActionListener() {
+         public void actionPerformed(java.awt.event.ActionEvent evt) {
+            orderDisplayActionPerformed(evt);
+         }
+      });
 
-      jButton4.setText("Test_3");
+      output.setColumns(20);
+      output.setRows(5);
+      jScrollPane1.setViewportView(output);
 
-      jButton5.setText("Test_1");
+      DemoOutput.setText("Demo Output");
 
       javax.swing.GroupLayout TestLayout = new javax.swing.GroupLayout(Test);
       Test.setLayout(TestLayout);
@@ -1053,26 +1121,30 @@ public class LoginScreen extends javax.swing.JFrame {
             .addGap(20, 20, 20)
             .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-               .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-               .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-               .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-               .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addContainerGap(765, Short.MAX_VALUE))
+               .addComponent(PlaceOrdersButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+               .addComponent(orderDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(294, 294, 294)
+            .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addComponent(DemoOutput)
+               .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addContainerGap(102, Short.MAX_VALUE))
       );
       TestLayout.setVerticalGroup(
          TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
          .addGroup(TestLayout.createSequentialGroup()
             .addGap(52, 52, 52)
-            .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addContainerGap(242, Short.MAX_VALUE))
+            .addGroup(TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+               .addGroup(TestLayout.createSequentialGroup()
+                  .addComponent(TestTabLoadCustomersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(PlaceOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(orderDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+               .addGroup(TestLayout.createSequentialGroup()
+                  .addComponent(DemoOutput)
+                  .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                  .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addContainerGap(265, Short.MAX_VALUE))
       );
 
       tabCstLogin.addTab("Test", Test);
@@ -1099,39 +1171,39 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_NewTabEmailFieldFocusGained
 
    private void ModifyTabBillPhoneFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillPhoneFieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabBillPhoneField.selectAll();
    }//GEN-LAST:event_ModifyTabBillPhoneFieldFocusGained
 
    private void ModifyTabBillCityFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillCityFieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabBillCityField.selectAll();
    }//GEN-LAST:event_ModifyTabBillCityFieldFocusGained
 
    private void ModifyTabBillAddress2FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillAddress2FieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabBillAddress2Field.selectAll();
    }//GEN-LAST:event_ModifyTabBillAddress2FieldFocusGained
 
    private void ModifyTabBillAddress1FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillAddress1FieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabBillAddress1Field.selectAll();
    }//GEN-LAST:event_ModifyTabBillAddress1FieldFocusGained
 
    private void ModifyTabBillLNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillLNameFieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabBillLNameField.selectAll();
    }//GEN-LAST:event_ModifyTabBillLNameFieldFocusGained
 
    private void ModifyTabBillFNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillFNameFieldFocusGained
-      // TODO add your handling code here:
+       ModifyTabBillFNameField.selectAll();
    }//GEN-LAST:event_ModifyTabBillFNameFieldFocusGained
 
    private void ModifyTabBillFNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillFNameFieldActionPerformed
-       ModifyTabBillFNameField.selectAll();
+
    }//GEN-LAST:event_ModifyTabBillFNameFieldActionPerformed
 
    private void ModifyTabBillZIPFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabBillZIPFieldFocusGained
-      // TODO add your handling code here:
+       ModifyTabBillZIPField.selectAll();
    }//GEN-LAST:event_ModifyTabBillZIPFieldFocusGained
 
    private void ModifyTabBillZIPFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillZIPFieldActionPerformed
-       ModifyTabBillZIPField.selectAll();
+
    }//GEN-LAST:event_ModifyTabBillZIPFieldActionPerformed
 
    private void ModifyTabBillStateDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillStateDropdownActionPerformed
@@ -1139,15 +1211,15 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabBillStateDropdownActionPerformed
 
    private void ModifyTabShipPhoneFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipPhoneFieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabShipPhoneField.selectAll();
    }//GEN-LAST:event_ModifyTabShipPhoneFieldFocusGained
 
    private void ModifyTabShipZIPFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipZIPFieldFocusGained
-      // TODO add your handling code here:
+       ModifyTabShipZIPField.selectAll();
    }//GEN-LAST:event_ModifyTabShipZIPFieldFocusGained
 
    private void ModifyTabShipZIPFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipZIPFieldActionPerformed
-       ModifyTabShipZIPField.selectAll();
+
    }//GEN-LAST:event_ModifyTabShipZIPFieldActionPerformed
 
    private void ModifyTabShipStateDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipStateDropdownActionPerformed
@@ -1155,15 +1227,15 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabShipStateDropdownActionPerformed
 
    private void ModifyTabShipCityFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipCityFieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabShipCityField.selectAll();
    }//GEN-LAST:event_ModifyTabShipCityFieldFocusGained
 
    private void ModifyTabShipAddress2FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipAddress2FieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabShipAddress2Field.selectAll();
    }//GEN-LAST:event_ModifyTabShipAddress2FieldFocusGained
 
    private void ModifyTabShipAddress1FieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipAddress1FieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabShipAddress1Field.selectAll();
    }//GEN-LAST:event_ModifyTabShipAddress1FieldFocusGained
 
    private void ModifyTabShipLNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipLNameFieldFocusGained
@@ -1171,23 +1243,23 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ModifyTabShipLNameFieldFocusGained
 
    private void ModifyTabShipFNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabShipFNameFieldFocusGained
-      // TODO add your handling code here:
+       ModifyTabShipFNameField.selectAll();
    }//GEN-LAST:event_ModifyTabShipFNameFieldFocusGained
 
    private void ModifyTabShipFNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipFNameFieldActionPerformed
-       ModifyTabShipFNameField.selectAll();
+
    }//GEN-LAST:event_ModifyTabShipFNameFieldActionPerformed
 
    private void ModifyTabCardNameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabCardNameFieldFocusGained
-      // TODO add your handling code here:
+       ModifyTabCardNameField.selectAll();
    }//GEN-LAST:event_ModifyTabCardNameFieldFocusGained
 
    private void ModifyTabEmailFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabEmailFieldFocusGained
-      // TODO add your handling code here:
+        ModifyTabEmailField.selectAll();
    }//GEN-LAST:event_ModifyTabEmailFieldFocusGained
 
    private void ModifyTabCardNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCardNameFieldActionPerformed
-       ModifyTabCardNameField.selectAll();
+
    }//GEN-LAST:event_ModifyTabCardNameFieldActionPerformed
 
    private void LoginTabOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabOKButtonActionPerformed
@@ -1615,6 +1687,10 @@ public class LoginScreen extends javax.swing.JFrame {
 		//confirmation for user that the button worked
 		JOptionPane.showMessageDialog(rootPane, "Test customers loaded.", "Successful", WIDTH);
 		
+		//make next test button appear!
+		PlaceOrdersButton.setEnabled(true);
+		PlaceOrdersButton.setVisible(true);
+		
    }//GEN-LAST:event_TestTabLoadCustomersButtonActionPerformed
 
    private void ForgotTabDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabDropdownActionPerformed
@@ -1622,35 +1698,35 @@ public class LoginScreen extends javax.swing.JFrame {
    }//GEN-LAST:event_ForgotTabDropdownActionPerformed
 
    private void NewTabCreatePasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabCreatePasswordFieldActionPerformed
-       NewTabCreatePasswordField.selectAll();
+
    }//GEN-LAST:event_NewTabCreatePasswordFieldActionPerformed
 
     private void LoginTabEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabEmailFieldActionPerformed
-        LoginTabEmailField.selectAll();
+
     }//GEN-LAST:event_LoginTabEmailFieldActionPerformed
 
     private void LoginTabPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginTabPasswordFieldActionPerformed
-        LoginTabPasswordField.selectAll();
+
     }//GEN-LAST:event_LoginTabPasswordFieldActionPerformed
 
     private void NewTabEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabEmailFieldActionPerformed
-        NewTabEmailField.selectAll();
+
     }//GEN-LAST:event_NewTabEmailFieldActionPerformed
 
     private void NewTabConfirmPasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabConfirmPasswordFieldActionPerformed
-        NewTabConfirmPasswordField.selectAll();
+
     }//GEN-LAST:event_NewTabConfirmPasswordFieldActionPerformed
 
     private void NewTabAnswerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewTabAnswerFieldActionPerformed
-        NewTabAnswerField.selectAll();
+
     }//GEN-LAST:event_NewTabAnswerFieldActionPerformed
 
     private void ForgotTabEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabEmailFieldActionPerformed
-        ForgotTabEmailField.selectAll();
+
     }//GEN-LAST:event_ForgotTabEmailFieldActionPerformed
 
     private void ForgotTabAnswerFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ForgotTabAnswerFieldActionPerformed
-        ForgotTabAnswerField.selectAll();
+
     }//GEN-LAST:event_ForgotTabAnswerFieldActionPerformed
 
     private void ModifyTabShipLNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipLNameFieldActionPerformed
@@ -1658,47 +1734,47 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifyTabShipLNameFieldActionPerformed
 
     private void ModifyTabShipAddress1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipAddress1FieldActionPerformed
-        ModifyTabShipAddress1Field.selectAll();
+
     }//GEN-LAST:event_ModifyTabShipAddress1FieldActionPerformed
 
     private void ModifyTabShipAddress2FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipAddress2FieldActionPerformed
-        ModifyTabShipAddress2Field.selectAll();
+
     }//GEN-LAST:event_ModifyTabShipAddress2FieldActionPerformed
 
     private void ModifyTabShipCityFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipCityFieldActionPerformed
-        ModifyTabShipCityField.selectAll();
+
     }//GEN-LAST:event_ModifyTabShipCityFieldActionPerformed
 
     private void ModifyTabShipPhoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabShipPhoneFieldActionPerformed
-        ModifyTabShipPhoneField.selectAll();
+
     }//GEN-LAST:event_ModifyTabShipPhoneFieldActionPerformed
 
     private void ModifyTabCardNumFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCardNumFieldActionPerformed
-        ModifyTabCardNumField.selectAll();
+
     }//GEN-LAST:event_ModifyTabCardNumFieldActionPerformed
 
     private void ModifyTabBillLNameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillLNameFieldActionPerformed
-        ModifyTabBillLNameField.selectAll();
+
     }//GEN-LAST:event_ModifyTabBillLNameFieldActionPerformed
 
     private void ModifyTabBillAddress1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillAddress1FieldActionPerformed
-        ModifyTabBillAddress1Field.selectAll();
+
     }//GEN-LAST:event_ModifyTabBillAddress1FieldActionPerformed
 
     private void ModifyTabBillAddress2FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillAddress2FieldActionPerformed
-        ModifyTabBillAddress2Field.selectAll();
+
     }//GEN-LAST:event_ModifyTabBillAddress2FieldActionPerformed
 
     private void ModifyTabBillCityFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillCityFieldActionPerformed
-        ModifyTabBillCityField.selectAll();
+
     }//GEN-LAST:event_ModifyTabBillCityFieldActionPerformed
 
     private void ModifyTabBillPhoneFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabBillPhoneFieldActionPerformed
-        ModifyTabBillPhoneField.selectAll();
+
     }//GEN-LAST:event_ModifyTabBillPhoneFieldActionPerformed
 
     private void ModifyTabEmailFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabEmailFieldActionPerformed
-        ModifyTabEmailField.selectAll();
+
     }//GEN-LAST:event_ModifyTabEmailFieldActionPerformed
 
     private void tabCstLoginFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tabCstLoginFocusGained
@@ -1706,6 +1782,29 @@ public class LoginScreen extends javax.swing.JFrame {
     }//GEN-LAST:event_tabCstLoginFocusGained
 
     private void tabCstLoginStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabCstLoginStateChanged
+        
+        LoginTabEmailField.requestFocus();
+        LoginTabEmailField.setNextFocusableComponent(LoginTabPasswordField);
+        LoginTabPasswordField.setNextFocusableComponent(LoginTabOKButton);
+        LoginTabOKButton.setNextFocusableComponent(LoginTabCancelButton);
+        LoginTabCancelButton.setNextFocusableComponent(LoginTabEmailField);
+        
+        NewTabEmailField.requestFocus();
+        NewTabEmailField.setNextFocusableComponent(NewTabCreatePasswordField);
+        NewTabCreatePasswordField.setNextFocusableComponent(NewTabConfirmPasswordField);
+        NewTabConfirmPasswordField.setNextFocusableComponent(NewTabQuestionDropdown);
+        NewTabQuestionDropdown.setNextFocusableComponent(NewTabAnswerField);
+        NewTabAnswerField.setNextFocusableComponent(NewTabSaveButton);
+        NewTabSaveButton.setNextFocusableComponent(NewTabCancelButton);
+        NewTabCancelButton.setNextFocusableComponent(NewTabEmailField);
+
+        ForgotTabEmailField.requestFocus();
+        ForgotTabEmailField.setNextFocusableComponent(ForgotTabDropdown);
+        ForgotTabDropdown.setNextFocusableComponent(ForgotTabAnswerField);
+        ForgotTabAnswerField.setNextFocusableComponent(ForgotTabOKButton);
+        ForgotTabOKButton.setNextFocusableComponent(ForgotTabCancelButton);
+        ForgotTabCancelButton.setNextFocusableComponent(ForgotTabEmailField);
+        
         ModifyTabEmailField.requestFocus();
         ModifyTabEmailField.setNextFocusableComponent(ModifyTabLoadButton);
         ModifyTabLoadButton.setNextFocusableComponent(ModifyTabShipFNameField);
@@ -1731,11 +1830,90 @@ public class LoginScreen extends javax.swing.JFrame {
         ModifyTabSaveButton.setNextFocusableComponent(ModifyTabCancelButton);
         ModifyTabCancelButton.setNextFocusableComponent(ModifyTabEmailField);
         
+		  
+		  PlaceOrdersButton.setEnabled(false);
+		orderDisplay.setEnabled(false);
+		PlaceOrdersButton.setVisible(false);
+		orderDisplay.setVisible(false);
     }//GEN-LAST:event_tabCstLoginStateChanged
 
    private void ModifyTabCardExpFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifyTabCardExpFieldActionPerformed
       // TODO add your handling code here:
    }//GEN-LAST:event_ModifyTabCardExpFieldActionPerformed
+
+    private void LoginTabEmailFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginTabEmailFieldFocusGained
+        LoginTabEmailField.selectAll();
+    }//GEN-LAST:event_LoginTabEmailFieldFocusGained
+
+    private void LoginTabPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_LoginTabPasswordFieldFocusGained
+        LoginTabPasswordField.selectAll();
+    }//GEN-LAST:event_LoginTabPasswordFieldFocusGained
+
+    private void NewTabCreatePasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NewTabCreatePasswordFieldFocusGained
+       NewTabCreatePasswordField.selectAll();
+    }//GEN-LAST:event_NewTabCreatePasswordFieldFocusGained
+
+    private void NewTabConfirmPasswordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NewTabConfirmPasswordFieldFocusGained
+        NewTabConfirmPasswordField.selectAll();
+    }//GEN-LAST:event_NewTabConfirmPasswordFieldFocusGained
+
+    private void NewTabAnswerFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_NewTabAnswerFieldFocusGained
+        NewTabAnswerField.selectAll();
+    }//GEN-LAST:event_NewTabAnswerFieldFocusGained
+
+    private void ForgotTabEmailFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ForgotTabEmailFieldFocusGained
+        ForgotTabEmailField.selectAll();
+    }//GEN-LAST:event_ForgotTabEmailFieldFocusGained
+
+    private void ForgotTabAnswerFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ForgotTabAnswerFieldFocusGained
+        ForgotTabAnswerField.selectAll();
+    }//GEN-LAST:event_ForgotTabAnswerFieldFocusGained
+
+    private void ModifyTabCardNumFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabCardNumFieldFocusGained
+        ModifyTabCardNumField.selectAll();
+    }//GEN-LAST:event_ModifyTabCardNumFieldFocusGained
+
+    private void ModifyTabCardExpFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ModifyTabCardExpFieldFocusGained
+        ModifyTabCardExpField.selectAll();
+    }//GEN-LAST:event_ModifyTabCardExpFieldFocusGained
+
+    private void PlaceOrdersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlaceOrdersButtonActionPerformed
+       //make some demo orders and put them in an order map 
+		 
+		 Order demoOrd1 = new Order("1000", "03/12/2014");
+        Order demoOrd2 = new Order("1001", "03/12/2014");
+        
+        demoOrd1.setProductIDs(555555);
+        demoOrd1.setProductIDs(666666);
+        demoOrd1.setProductIDs(777777);
+        demoOrd2.setProductIDs(222222);
+        demoOrd2.setProductIDs(333333);
+        demoOrd2.setProductIDs(444444);
+        
+        currentcust = (Customer) custmap.get("joe@gmail.com");
+        ordermap.put(currentcust.getCustID(), demoOrd1);
+        ordermap.put(demoOrd1.getOrderID(), demoOrd1);
+        
+        JOptionPane.showMessageDialog(rootPane, "Test orders loaded.", "Successful", WIDTH);
+		  
+		  //make next test button appear!
+		  orderDisplay.setEnabled(true);
+		  orderDisplay.setVisible(true);
+    }//GEN-LAST:event_PlaceOrdersButtonActionPerformed
+
+   private void TestFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TestFocusGained
+      
+   }//GEN-LAST:event_TestFocusGained
+
+   private void orderDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderDisplayActionPerformed
+   Order currentOrder = (Order) ordermap.get("1000");
+	Customer currentCustomer = (Customer) custmap.get(currentOrder.getCustID());
+	output.setText("Customer Email: "+currentCustomer.getEmail()+"\n"
+			  +"Customer ID: "+currentOrder.getCustID()+"\n"+"Order ID: "
+			  +currentOrder.getOrderID()+"\n"+"Date: "+currentOrder.getOrderDate()
+			  +"\n"+"Product ID: "+currentOrder.getProductIDs()+"\n"
+			  +"-----------------------------------------------------");
+   }//GEN-LAST:event_orderDisplayActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1775,6 +1953,7 @@ public class LoginScreen extends javax.swing.JFrame {
    private javax.swing.JLabel CstEMailAddressLabel;
    private javax.swing.JLabel CstPasswordLabel;
    private javax.swing.JPanel CustomerLogin;
+   private javax.swing.JLabel DemoOutput;
    private javax.swing.JLabel EmailAddress;
    private javax.swing.JLabel EmailAddress1;
    private javax.swing.JPanel ForgotPassword;
@@ -1843,6 +2022,7 @@ public class LoginScreen extends javax.swing.JFrame {
    private javax.swing.JLabel OlympicPride1;
    private javax.swing.JLabel OlympicPride2;
    private javax.swing.JLabel OlympicPride5;
+   private javax.swing.JButton PlaceOrdersButton;
    private javax.swing.JLabel ReqFieldInstruct;
    private javax.swing.JLabel ReqFieldInstruct1;
    private javax.swing.JLabel ReqFieldInstruct2;
@@ -1853,10 +2033,6 @@ public class LoginScreen extends javax.swing.JFrame {
    private javax.swing.JLabel ShippingInfoLabel;
    private javax.swing.JPanel Test;
    private javax.swing.JButton TestTabLoadCustomersButton;
-   private javax.swing.JButton jButton2;
-   private javax.swing.JButton jButton3;
-   private javax.swing.JButton jButton4;
-   private javax.swing.JButton jButton5;
    private javax.swing.JLabel jLabel1;
    private javax.swing.JLabel jLabel2;
    private javax.swing.JLabel jLabel3;
@@ -1865,6 +2041,9 @@ public class LoginScreen extends javax.swing.JFrame {
    private javax.swing.JLabel jLabel6;
    private javax.swing.JLabel jLabel9;
    private javax.swing.JPanel jPanel1;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JButton orderDisplay;
+   private javax.swing.JTextArea output;
    private javax.swing.JTabbedPane tabCstLogin;
    // End of variables declaration//GEN-END:variables
 }

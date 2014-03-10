@@ -36,11 +36,11 @@ public class Customer {
 		CustOrders = new ArrayList();
 		BillAddress = new Address();
 		ShipAddress = new Address();
-		
 	} // end constructor
 	
 	//gets and sets
-	//email, password, ID, and security information are set in constructor; no separate sets required
+	//email, password, ID, and security information are set in constructor; 
+	//we aren't allowing changing security data or password, so no separate sets required
 	
 	String getEmail()
 	{
@@ -97,6 +97,7 @@ public class Customer {
 		return CCName;
 	} // end getCCName
 	
+	//complicated gets and sets for address objects inside of customer objects
 	void setBillAddress(String fname, String lname, String add1, String add2, String city, String state, String zip, String phone)
 	{
 		BillAddress = new Address(fname, lname, add1, add2, city, state, zip, phone);
@@ -193,9 +194,18 @@ public class Customer {
 		CustOrders.add(orderid);
 	}
 	
-	Object getOrders()
+	String getOrders()
 	{
-		return CustOrders.toArray();
+		String orders = "";
+		//loop through the array and convert the values to a string
+		for(int z = 0; z < CustOrders.size(); z++)
+		{
+			orders = orders + (long) CustOrders.get(z);
+			//add a comma if it isn't the last time through the loop
+			if (z < (CustOrders.size() - 1))
+				orders = orders + ", ";
+		}
+		return orders;
 	}
 	
 } // end class Customer
